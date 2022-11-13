@@ -11,7 +11,6 @@ const path = require("path");
 const baseUrl = process.env.BASE_URL || "/";
 
 //@ts-check
-
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "thirdweb developer portal",
