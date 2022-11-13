@@ -180,7 +180,7 @@ const config = {
       },
       posthog: {
         apiKey: "phc_hKK4bo8cHZrKuAVXfXGpfNSLSJuucUnguAgt2j6dgSV",
-        appUrl: "https://a.thirdweb.com", // optional
+        appUrl: "https://dash.whop.com", // optional
         enableInDevelopment: true, // optional
       },
       colorMode: {

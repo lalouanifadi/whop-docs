@@ -45,20 +45,24 @@ function DocSidebarItems({ items, ...props }) {
       items: ["Oauth", "API Keys"],
     },
     {
-      title: "Accept Payments",
-      items: ["Plans", "Memberships", "Promo Codes"],
+      title: "Payments",
+      items: ["Access Passes", "Plans", "Checkout", "Promo Codes"],
     },
     {
-      title: "Understand Users",
-      items: ["Engagement", "Payments", "Member Information"],
+      title: "Users API",
+      items: [
+        "Memberships",
+        "Engagement",
+        "Member Information",
+        "Payments",
+        "Notifications",
+        "Emails",
+        "Experiences",
+      ],
     },
     {
-      title: "Engage with Users",
-      items: ["Push Notifications", "Emails", "Experiences"],
-    },
-    {
-      title: "Manage Projects",
-      items: ["Dashboard"],
+      title: "Discoverability",
+      items: ["Discoverability Requirements"],
     },
     {
       title: "",

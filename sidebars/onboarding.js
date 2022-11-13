@@ -51,7 +51,13 @@ const sidebars = {
       label: "API Keys",
       href: "/api-keys",
     },
-    // === Accept Payments ===
+    // === Payments ===
+
+    {
+      type: "link",
+      label: "Access Passes",
+      href: "/access-passes",
+    },
     {
       type: "link",
       label: "Plans",
@@ -59,8 +65,8 @@ const sidebars = {
     },
     {
       type: "link",
-      label: "Memberships",
-      href: "/memberships",
+      label: "Checkout",
+      href: "/checkout",
     },
     {
       type: "link",
@@ -68,7 +74,12 @@ const sidebars = {
       href: "/promo-codes",
     },
 
-    // === Understand Users ===
+    // === Users API ===
+    {
+      type: "doc",
+      label: "Memberships",
+      id: "Memberships",
+    },
     {
       type: "doc",
       label: "Engagement",
@@ -76,13 +87,30 @@ const sidebars = {
     },
     {
       type: "doc",
-      label: "Payments",
-      id: "Payments",
+      label: "Member Information",
+      id: "Member Information",
     },
     {
       type: "doc",
-      label: "Member Information",
-      id: "Member Information",
+      label: "Payments",
+      id: "Payments",
+    },
+
+    {
+      type: "doc",
+      label: "Notifications",
+      id: "Notifications",
+    },
+
+    {
+      type: "doc",
+      label: "Emails",
+      id: "Emails",
+    },
+    {
+      type: "doc",
+      label: "Experiences",
+      id: "Experiences",
     },
 
     // // === Deploy Contracts ===
@@ -102,33 +130,12 @@ const sidebars = {
     //   href: "/pre-built-contracts",
     // },
 
-    // === Build Apps ===
+    // === Discoverability ===
     {
       type: "link",
-      label: "EVM SDK",
-      href: "/sdk",
+      label: "Discoverability Requirements",
+      href: "/discoverability-requirements",
     },
-    {
-      type: "link",
-      label: "UI Components",
-      href: "/ui-components",
-    },
-    {
-      type: "link",
-      label: "Solana SDK",
-      href: "/solana",
-    },
-    {
-      type: "link",
-      label: "Auth",
-      href: "/auth",
-    },
-    {
-      type: "link",
-      label: "Storage",
-      href: "/storage",
-    },
-
     // === Manage Projects ===
     {
       type: "link",
@@ -156,7 +163,7 @@ const sidebars = {
     {
       type: "link",
       label: "Guides",
-      href: "https://blog.thirdweb.com/guides/",
+      href: "https://whop.com/blog/",
     },
     {
       type: "category",
