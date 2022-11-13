@@ -1,0 +1,470 @@
+{
+  "cleanUrls": true,
+  "github": {
+    "autoJobCancelation": true
+  },
+  "redirects": [
+    {
+      "source": "/learn/modules/:match*",
+      "destination": "/contracts/:match*",
+      "permanent": true
+    },
+    {
+      "source": "/learn/recipes/:match*",
+      "destination": "/guides",
+      "permanent": true
+    },
+    {
+      "source": "/guides/tag/bundle-collection",
+      "destination": "/tag/edition",
+      "permanent": true
+    },
+    {
+      "source": "/guides/tag/bundle-drop",
+      "destination": "/tag/edition-drop",
+      "permanent": true
+    },
+    {
+      "source": "/guides/bundle-collection",
+      "destination": "/tag/edition",
+      "permanent": true
+    },
+    {
+      "source": "/guides/bundle-drop",
+      "destination": "/tag/edition-drop",
+      "permanent": true
+    },
+    {
+      "source": "/guides/splits",
+      "destination": "/tag/split",
+      "permanent": true
+    },
+    {
+      "source": "/guides/connect-wallet",
+      "destination": "/guides/add-connectwallet-to-your-website",
+      "permanent": true
+    },
+    {
+      "source": "/guides/create-a-drop-with-thirdweb-dashboard",
+      "destination": "/guides/release-an-nft-drop-with-no-code",
+      "permanent": true
+    },
+    {
+      "source": "/guides/minting-with-signature",
+      "destination": "/guides/on-demand-minting",
+      "permanent": true
+    },
+    {
+      "source": "/learn/connect-to-blockchain",
+      "destination": "/learn-thirdweb/connect-to-blockchain",
+      "permanent": true
+    },
+    {
+      "source": "/learn/projects",
+      "destination": "/learn-thirdweb/projects",
+      "permanent": true
+    },
+    {
+      "source": "/learn",
+      "destination": "/getting-started",
+      "permanent": true
+    },
+    {
+      "source": "/learn-thirdweb",
+      "destination": "/getting-started",
+      "permanent": true
+    },
+    {
+      "source": "/learn-web3",
+      "destination": "/getting-started",
+      "permanent": true
+    },
+    {
+      "source": "/learn-thirdweb/connect-to-blockchain",
+      "destination": "/getting-started/integrate-sdks",
+      "permanent": true
+    },
+    {
+      "source": "/learn-thirdweb/quick-start-dev",
+      "destination": "/getting-started/your-first-app",
+      "permanent": true
+    },
+    {
+      "source": "/guides/nft-drop",
+      "destination": "/tag/nft-drop",
+      "permanent": true
+    },
+    {
+      "source": "/guides/nft-collection",
+      "destination": "/tag/nft-collection",
+      "permanent": true
+    },
+    {
+      "source": "/guides/edition-drop",
+      "destination": "/tag/edition-drop",
+      "permanent": true
+    },
+    {
+      "source": "/guides/edition",
+      "destination": "/tag/edition",
+      "permanent": true
+    },
+    {
+      "source": "/guides/token",
+      "destination": "/tag/token",
+      "permanent": true
+    },
+    {
+      "source": "/guides/vote",
+      "destination": "/tag/vote",
+      "permanent": true
+    },
+    {
+      "source": "/guides/split",
+      "destination": "/tag/split",
+      "permanent": true
+    },
+    {
+      "source": "/guides/marketplace",
+      "destination": "/tag/marketplace",
+      "permanent": true
+    },
+    {
+      "source": "/guides/pack",
+      "destination": "/tag/pack",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/nft-drop",
+      "destination": "/pre-built-contracts/nft-drop",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/nft-collection",
+      "destination": "/pre-built-contracts/nft-collection",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/edition-drop",
+      "destination": "/pre-built-contracts/edition-drop",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/edition",
+      "destination": "/pre-built-contracts/edition",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/token-drop",
+      "destination": "/pre-built-contracts/token-drop",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/token",
+      "destination": "/pre-built-contracts/token",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/vote",
+      "destination": "/pre-built-contracts/vote",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/split",
+      "destination": "/pre-built-contracts/split",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/marketplace",
+      "destination": "/pre-built-contracts/marketplace",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/pack",
+      "destination": "/pre-built-contracts/pack",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/nfts-and-tokens",
+      "destination": "/pre-built-contracts",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/drops",
+      "destination": "/pre-built-contracts",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/governance",
+      "destination": "/pre-built-contracts",
+      "permanent": true
+    },
+    {
+      "source": "/thirdweb-deploy/contract-features/:match*",
+      "destination": "/contractkit/features/:match*"
+    },
+    {
+      "source": "/getting-started",
+      "destination": "/getting-started/deploying-contracts"
+    },
+    {
+      "source": "/advanced-features/signature-based-minting",
+      "destination": "/advanced-features/on-demand-minting"
+    },
+    {
+      "source": "/guides/on-demand-minting",
+      "destination": "/guides/mint-nft-unique-code",
+      "permanent": true
+    },
+    {
+      "source": "/guides/create-your-own-marketplace-with-thirdweb-typescript-sdk",
+      "destination": "/guides/nft-marketplace-with-typescript-next",
+      "permanent": true
+    },
+    {
+      "source": "/guides/switch-between-networks",
+      "destination": "/react/react.usenetwork"
+    },
+    {
+      "source": "/installation",
+      "destination": "/getting-started/deploying-contracts",
+      "permanent": true
+    },
+    {
+      "source": "/guides/create-a-pack-with-typescript-and-nextjs",
+      "destination": "/guides/create-an-nft-lootbox",
+      "permanent": true
+    },
+    {
+      "source": "/examples",
+      "destination": "/templates",
+      "permanent": true
+    },
+    {
+      "source": "/examples/:match*",
+      "destination": "/templates/:match*",
+      "permanent": true
+    },
+    {
+      "source": "/thirdweb-deploy",
+      "destination": "/thirdweb-cli",
+      "permanent": true
+    },
+    {
+      "source": "/thirdweb-cli",
+      "destination": "/cli",
+      "permanent": true
+    },
+    {
+      "source": "/smart-contracts",
+      "destination": "/pre-built-contracts",
+      "permanent": true
+    },
+    {
+      "source": "/building-web3-apps/setting-up-the-sdk",
+      "destination": "/sdk",
+      "permanent": true
+    },
+    {
+      "source": "/building-web3-apps/setting-up-the-sdk/frontend",
+      "destination": "/sdk/set-up-the-sdk/frontend",
+      "permanent": true
+    },
+    {
+      "source": "/building-web3-apps/setting-up-the-sdk/backend",
+      "destination": "/sdk/set-up-the-sdk/backend",
+      "permanent": true
+    },
+    {
+      "source": "/building-web3-apps/authenticating-users",
+      "destination": "/auth",
+      "permanent": true
+    },
+    {
+      "source": "/building-web3-apps/authenticating-users/quickstart",
+      "destination": "/auth/quickstart",
+      "permanent": true
+    },
+    {
+      "source": "/building-web3-apps/authenticating-users/server-side-user-verification",
+      "destination": "/auth/sign-in-with-web3",
+      "permanent": true
+    },
+    {
+      "source": "/building-web3-apps/authenticating-users/wallet-authentication",
+      "destination": "/auth/remember-the-user",
+      "permanent": true
+    },
+    {
+      "source": "/building-web3-apps/authenticating-users/security-and-advanced-usage",
+      "destination": "/auth/security-and-advanced-usage",
+      "permanent": true
+    },
+    {
+      "source": "/advanced-features/:match*",
+      "destination": "/sdk/advanced-features/:match*",
+      "permanent": true
+    },
+    {
+      "source": "/thirdweb-deploy/features",
+      "destination": "/contractkit",
+      "permanent": true
+    },
+    {
+      "source": "/thirdweb-deploy/contract-extensions/quickstart",
+      "destination": "/contractkit"
+    },
+    {
+      "source": "/pre-built-contracts/nfts",
+      "destination": "/pre-built-contracts/choosing-the-right-pre-built-contract#nfts",
+      "permanent": true
+    },
+    {
+      "source": "/pre-built-contracts/tokens",
+      "destination": "/pre-built-contracts/choosing-the-right-pre-built-contract#tokens",
+      "permanent": true
+    },
+    {
+      "source": "/pre-built-contracts/other",
+      "destination": "/pre-built-contracts/choosing-the-right-pre-built-contract",
+      "permanent": true
+    },
+    {
+      "source": "/guides/randomized-nft-drop",
+      "destination": "/guides/shuffle-nft-drop",
+      "permanent": true
+    },
+    {
+      "source": "/pre-built-contracts/other",
+      "destination": "/pre-built-contracts/choosing-the-right-pre-built-contract",
+      "permanent": true
+    },
+    {
+      "source": "/typescript/category/built-in-contracts",
+      "destination": "/typescript/category/pre-built-contracts"
+    },
+    {
+      "source": "/react/category/contracts",
+      "destination": "/react/react.usecontract"
+    },
+    {
+      "source": "/react/category/wallet-connection",
+      "destination": "/react/react.usemetamask"
+    },
+    {
+      "source": "/contracts-sdk/quickstart",
+      "destination": "/getting-started/creating-custom-contracts"
+    },
+    {
+      "source": "/contracts-sdk/contract-extensions/signatureminting",
+      "destination": "/contractkit/features/signatureminterc721"
+    },
+    {
+      "source": "/guides/sign-in-with-ethereum-using-thirdweb-connectwallet",
+      "destination": "/auth"
+    },
+    {
+      "source": "/web3-sdk",
+      "destination": "/sdk"
+    },
+    {
+      "source": "/web3-sdk/:match*",
+      "destination": "/sdk/:match*"
+    },
+    {
+      "source": "/contracts-sdk",
+      "destination": "/contractkit"
+    },
+    {
+      "source": "/contracts-sdk/contract-extensions",
+      "destination": "/contractkit/features"
+    },
+    {
+      "source": "/contracts-sdk/contract-extensions/:match*",
+      "destination": "/contractkit/features/:match*"
+    },
+    {
+      "source": "/contracts-sdk/:match*",
+      "destination": "/contractkit/:match*"
+    },
+    {
+      "source": "/guides",
+      "destination": "https://blog.thirdweb.com/guides",
+      "permanent": true
+    },
+    {
+      "source": "/guides/:match*",
+      "destination": "https://blog.thirdweb.com/guides/:match*",
+      "permanent": true
+    },
+    {
+      "source": "/tag/:match*",
+      "destination": "https://blog.thirdweb.com/tag/:match*",
+      "permanent": true
+    },
+    {
+      "source": "/sdk/connecting-to-a-wallet",
+      "destination": "/ui-components/connectwalletbutton"
+    },
+    {
+      "source": "/sdk/switching-networks",
+      "destination": "/react/react.usenetwork"
+    },
+    {
+      "source": "/contracts/signature-drop",
+      "destination": "/pre-built-contracts/signature-drop"
+    },
+    {
+      "source": "/getting-started/deploying-contracts",
+      "destination": "/getting-started/creating-custom-contracts"
+    },
+    {
+      "source": "/getting-started/configuring-contracts",
+      "destination": "/getting-started/creating-custom-contracts"
+    },
+    {
+      "source": "/getting-started/creating-nfts",
+      "destination": "/getting-started/creating-custom-contracts"
+    },
+    {
+      "source": "/contractkit/features/contractmetadata",
+      "destination": "/contractkit/contractmetadata"
+    },
+    {
+      "source": "/contractkit/features/ownable",
+      "destination": "/contractkit/ownable"
+    },
+    {
+      "source": "/contractkit/features/permissions",
+      "destination": "/contractkit/permissions"
+    },
+    {
+      "source": "/contractkit/features/platformfee",
+      "destination": "/contractkit/platformfee"
+    },
+    {
+      "source": "/contractkit/features/primarysale",
+      "destination": "/contractkit/primarysale"
+    },
+    {
+      "source": "/contractkit/features/primarysale",
+      "destination": "/contractkit/primarysale"
+    },
+    {
+      "source": "/create",
+      "destination": "/sdk"
+    },
+    {
+      "source": "/extensions",
+      "destination": "/contractkit"
+    },
+    {
+      "source": "/extensions/:match*",
+      "destination": "/contractkit/:match*"
+    },
+    {
+      "source": "/sdk/ui-components",
+      "destination": "/ui-components"
+    }
+  ]
+}

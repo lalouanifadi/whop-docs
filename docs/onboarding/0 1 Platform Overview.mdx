@@ -1,0 +1,223 @@
+---
+title: Platform Overview
+slug: /platform-overview
+---
+
+import QuickstartCard from "@components/QuickstartCard";
+import ThemedImage from "@theme/ThemedImage";
+import Image from "@theme/IdealImage";
+
+# Platform Overview
+
+<div className="heroGrid">
+
+<div>
+<p>Whop API is a solution that allows you to build membership functionality into your applications, while leveraging the power of Whop Dashboard.</p>
+
+<p> People build on our API to take advantage of:</p>
+
+1. **Authentication** for your users so that you can easily confirm they hold a valid membership.
+2. **Payments** with credit card, apple pay, or crypto so you don't have to build any checkout.
+3. **User data** to understand who your users are to better business decisions.
+4. **Discoverability** to immediately get your project in front of hundreds of thousands of potential users.
+
+</div>
+
+<div className="heroGridImageContainer">
+  <ThemedImage
+    sources={{
+      light: "/assets/portal-overview-all-light.png",
+      dark: "/assets/portal-overview-all-dark.png",
+    }}
+    className="heroGridImage"
+    alt="Whop API Value Prop"
+  />
+</div>
+
+</div>
+
+:::tip Quick Start
+
+Want to start building and see what you can do? Check out the **[Getting Started](/getting-started/creating-custom-contracts)** guide.
+
+:::
+
+<hr
+  style={{
+    marginTop: 32,
+    backgroundColor: "var(--ifm-toc-border-color)",
+  }}
+/>
+
+## Authentication
+
+<div className="heroGrid">
+
+<div>
+  <p>Checking to see if a user has access to use your application is the first step in many projects.</p>
+
+You can use our [oauth flow](/pre-built-contracts) to check a user's membership status and require payment if they are not a valid member.
+
+<p style={{ marginBottom: 6 }}>Our oauth flow:</p>
+
+- Can be integrated **seamlessly** on your website / app
+- Handles **many** common login options, including wallet sign in and Discord login
+- Generates a user token that you can use to get **all** information on the user who logged in
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Learn more about oauth"
+      link="/pre-built-contracts"
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
+
+</div>
+
+<div className="heroGridImageContainer">
+  <ThemedImage
+    sources={{
+      light: "/assets/platform-overview-contract-light.png",
+      dark: "/assets/platform-overview-contract-dark.png",
+    }}
+    className="heroGridImage"
+    alt="Authentication"
+  />
+</div>
+
+</div>
+
+<hr
+  style={{
+    marginTop: 32,
+    backgroundColor: "var(--ifm-toc-border-color)",
+  }}
+/>
+
+## Payments
+
+<div className="heroGrid">
+
+<div>
+  <p>If a user does not hold a valid membership, they can get one by paying with credit card, apple pay, crypto, or by proving they own an NFT.</p>
+
+You can use our [payments flow](/pre-built-contracts) to require a user to make a payment or confirm their NFT holdings.
+
+<p style={{ marginBottom: 6 }}>Our payments infrastructure:</p>
+
+- Can be linked to your **existing** Stripe account
+- Handles **every** major currency
+- Allows you to offer a **branded checkout** experience for your customers
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Learn more about oauth"
+      link="/pre-built-contracts"
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
+
+</div>
+
+<div className="heroGridImageContainer">
+  <ThemedImage
+    sources={{
+      light: "/assets/platform-overview-contract-light.png",
+      dark: "/assets/platform-overview-contract-dark.png",
+    }}
+    className="heroGridImage"
+    alt="Paymets API"
+  />
+</div>
+
+</div>
+
+<hr
+  style={{
+    marginTop: 32,
+    backgroundColor: "var(--ifm-toc-border-color)",
+  }}
+/>
+
+## User Info
+
+<div className="heroGrid">
+  <div>
+    <p>
+     Using our API, you can pull important user data in order for you to understand who your customers are. Things like social accounts, payment history, and email addresses can give you them a more personalized experience inside your application.
+    </p>
+
+<p style={{ marginBottom: 6 }}>With our API, you can:</p>
+
+- Fetch users by **any** attribute - Discord ID, Twitter username, wallet address, email, or Whop ID
+- Record and track **user engagement** and display it on your Whop Dashboard
+
+<div className="row" style={{marginBottom:24}}>
+
+<div className="col col--12" style={{ marginTop: 8 }}>
+  <QuickstartCard
+    name="Learn more about User Info"
+    link="/sdk"
+    image="/assets/icons/general.png"
+  />
+</div>
+
+</div>
+
+<p>
+
+</p>
+</div>
+
+<div className="heroGridImageContainer">
+    <ThemedImage
+      sources={{
+        light: "/assets/platform-overview-sdk-light.png",
+        dark: "/assets/platform-overview-sdk-dark.png",
+      }}
+      className="heroGridImage"
+      alt="User Info API"
+    />
+  </div>
+</div>
+
+<hr
+  style={{
+    marginTop: 32,
+    backgroundColor: "var(--ifm-toc-border-color)",
+  }}
+/>
+
+## Discoverability
+
+<div className="heroGrid">
+  
+  <div>
+    <p>
+      Our marketplace gets over half a million visitors each month looking for software that you are building.
+    </p>
+
+This lets you focus on your product, and not worry as much about marketing and getting users.
+
+- [Consumer marketplace](https://whop.com) is home to many categories with consumers looking to purchase fancy tools
+- Getting listed in our [Business Dashboard](https://dash.whop.com/apps) app store will allow businesses to buy access to your app
+- Out of the box **affiliate system** will turn your existing users into an army of marketers for your product
+
+</div>
+
+<div className="heroGridImageContainer">
+  <ThemedImage
+    sources={{
+      light: "/assets/platform-overview-dashboard-light.png",
+      dark: "/assets/platform-overview-dashboard-dark.png",
+    }}
+    className="heroGridImage"
+    alt="Whop Discoverability"
+  />
+</div>
+
+</div>
