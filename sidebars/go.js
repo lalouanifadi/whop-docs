@@ -28,15 +28,11 @@ const sidebars = {
       label: "ThirdwebSDK",
       id: "sdk",
     },
-    {
-      type: "doc",
-      label: "IPFS Storage",
-      id: "storage",
-    },
+
     {
       type: "doc",
       label: "Deploying Contracts",
-      id: "contract_deployer"
+      id: "contract_deployer",
     },
     {
       type: "doc",
@@ -92,8 +88,8 @@ const sidebars = {
         {
           type: "doc",
           label: "Marketplace",
-          id: "marketplace"
-        }
+          id: "marketplace",
+        },
       ],
     },
     {
@@ -128,8 +124,8 @@ const sidebars = {
             {
               type: "doc",
               label: "Marketplace Encoder",
-              id: "marketplace_encoder"
-            }
+              id: "marketplace_encoder",
+            },
           ],
         },
         {
@@ -155,8 +151,8 @@ const sidebars = {
         {
           type: "doc",
           label: "Edition Drop Claim conditions",
-          id: "edition_drop_claim_conditions"
-        }
+          id: "edition_drop_claim_conditions",
+        },
       ],
     },
     {

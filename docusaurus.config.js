@@ -13,14 +13,14 @@ const baseUrl = process.env.BASE_URL || "/";
 //@ts-check
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "thirdweb developer portal",
-  tagline: "Get started with thirdweb by diving into our developer portal.",
-  url: "https://portal.thirdweb.com",
+  title: "Whop Developer Portal",
+  tagline: "Get started with Whop by diving into our developer portal.",
+  url: "https://dev.whop.com",
   baseUrl,
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
-  organizationName: "thidweb-dev", // Usually your GitHub org/user name.
+  organizationName: "whopio", // Usually your GitHub org/user name.
   projectName: "docs", // Usually your repo name.
   trailingSlash: false,
   webpack: {
@@ -53,7 +53,7 @@ const config = {
           routeBasePath: "/",
           remarkPlugins: [[npm2yarn, { sync: true }]],
           sidebarCollapsed: false,
-          editUrl: "https://github.com/thirdweb-dev/docs/edit/main",
+          editUrl: "https://github.com/whopio/whop-docs/edit/master",
         },
         sitemap: {
           changefreq: "daily",
@@ -102,10 +102,10 @@ const config = {
     [
       "@docusaurus/plugin-content-docs",
       {
-        id: "storage",
-        path: "docs/storage",
-        routeBasePath: "storage-sdk",
-        sidebarPath: require.resolve("./sidebars/storage.js"),
+        id: "nextjs",
+        path: "docs/nextjs",
+        routeBasePath: "nextjs",
+        sidebarPath: require.resolve("./sidebars/nextjs.js"),
         remarkPlugins: [[npm2yarn, { sync: true }]],
         // ... other options
       },
@@ -140,7 +140,7 @@ const config = {
         routeBasePath: "python",
         sidebarPath: require.resolve("./sidebars/python.js"),
         remarkPlugins: [[npm2yarn, { sync: true }]],
-        editUrl: "https://github.com/thirdweb-dev/docs/edit/main",
+        editUrl: "https://github.com/whopio/whop-docs/edit/master",
         // ... other options
       },
     ],
@@ -152,7 +152,7 @@ const config = {
         routeBasePath: "go",
         sidebarPath: require.resolve("./sidebars/go.js"),
         remarkPlugins: [[npm2yarn, { sync: true }]],
-        editUrl: "https://github.com/thirdweb-dev/docs/edit/main",
+        editUrl: "https://github.com/whopio/whop-docs/edit/master",
         // ... other options
       },
     ],
@@ -191,7 +191,7 @@ const config = {
       },
       navbar: {
         logo: {
-          alt: "thirdweb docs",
+          alt: "Whop Docs",
           src: "img/longlogo.png",
           href: "/",
           srcDark: "img/longlogo.png",
@@ -212,10 +212,6 @@ const config = {
                 to: "/react",
               },
               {
-                label: "Storage",
-                to: "/storage",
-              },
-              {
                 label: "Contracts",
                 to: "/contracts",
               },
@@ -230,15 +226,15 @@ const config = {
             items: [
               {
                 label: "Discord",
-                href: "https://discord.gg/thirdweb",
+                href: "https://discord.gg/whop-biz",
               },
               {
                 label: "Twitter",
-                href: "https://twitter.com/thirdweb_",
+                href: "https://twitter.com/whopio",
               },
               {
                 label: "GitHub",
-                href: "https://github.com/thirdweb-dev",
+                href: "https://github.com/whopio/whop-docs",
               },
             ],
           },
@@ -247,11 +243,11 @@ const config = {
             items: [
               {
                 label: "Dashboard",
-                href: "https://thirdweb.com/dashboard",
+                href: "https://dash.whop.com",
               },
               {
                 label: "Blog",
-                href: "https://blog.thirdweb.com",
+                href: "https://whop.com/blog",
               },
               {
                 label: "Guides",
@@ -260,7 +256,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} thirdweb, Inc.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Whop, Inc.`,
       },
       prism: {
         additionalLanguages: ["solidity"],
