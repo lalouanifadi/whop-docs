@@ -1,0 +1,23 @@
+---
+title: Check for access
+slug: /guides/check-for-access
+---
+
+While you build your app, you might find that you want to check if a user has access to a certain resource or not. These resources would be either:
+- Your company
+- A specific access pass
+- A specific experience
+
+need active memebrship etc
+
+### IGNORE
+
+Write a guide for an API Docs guides website that tells a user how to check if a user holds an active membership for their company.
+
+A membership is ownership of an access pass. They can use the endpoint `/me/companies/:company_id` to see if they have access
+
+If they do, it will respond with a membership object. If not, it will give a 404
+
+Use code snippets to show how to make a request
+
+Tell them that this is how can they memebership-gate their app to make sure only people who should have access can use it

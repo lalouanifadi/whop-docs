@@ -41,8 +41,22 @@ function DocSidebarItems({ items, ...props }) {
       ],
     },
     {
-      title: "Authentication",
-      items: ["Oauth", "API Keys"],
+      title: "",
+      items: [
+        "Authentication",
+      ]
+    },
+    {
+      title: "",
+      items: [
+        "Guides",
+      ]
+    },
+    {
+      title: "",
+      items: [
+        "Memberships",
+      ]
     },
     {
       title: "Payments",

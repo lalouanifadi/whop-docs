@@ -1,0 +1,30 @@
+---
+title: Implementing OAuth2
+slug: /authentication/oauth
+---
+
+
+OAuth2 is a fancy way of saying "login with your existing account." You know those "Sign in with Google" or "Sign in with Facebook" buttons you see on websites? That's OAuth2 in action!
+
+To use OAuth2 with our API, you'll need to grab your **Client ID** and **Client Secret** from the dashboard in your developer settings. These keys will let our servers know that your app is legit and allowed to use OAuth2.
+
+Once you have these keys, you can implement the OAuth2 flow in your app. This involves redirecting the user to our login page, where they can choose which service they want to log in with. We offer:
+- Email + Password
+- Gmail
+- Apple
+- Wallet
+- Discord
+- Twitter
+
+After the user logs in and grants your app permission, they'll be redirected back to your app with an access token. This token represents the user, and allows you to make API requests on their behalf.
+
+All of the endpoints that you can use for a logged-in user are located under the `/me` section of the API. This includes methods for accessing the user's profile information, their social connections, their memberships, and more. You can use this to build a website or app that's customized for each user.
+
+By implementing OAuth2 with our API, you can provide a seamless and secure login experience for your users. This can help to increase user engagement and retention, and to improve the overall user experience of your product.
+
+
+[__Click here to view our API reference__](https://dev.whop.com/v2.0/reference/oauth-implementation)
+
+__Example implementations:__
+- [Typescript + React](https://github.com/Wyatt-SG/whop-oauth-nextjs-app)
+
