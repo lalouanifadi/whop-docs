@@ -3764,5 +3764,99 @@
     "reference": {
       "typescript": "https://portal.thirdweb.com/typescript/sdk.UserWallet"
     }
+  },
+  "CheckResource": {
+    "name": "CheckResource",
+    "summary": "Check if a user has a resource\n\n",
+    "examples": {
+      "javascript": "const titty = await sdk.wallet.balance();"
+    },
+    "methods": [
+      {
+        "name": "balance",
+        "summary": "Fetch the native or ERC20 token balance of this wallet\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const sdk = new WhopSDK({TOKEN: ''});\n\nconst resourceId = ''\n\nconst { valid: Boolean } = await sdk.users.hasAccess({ resourceId })",
+          "curl": "curl --request GET \\ \n\t--url 'https://api.whop.com/api/v2/me/memberships?page=1&per=10' \\ \n\t--header 'Authorization: TOKEN'\\ \n\t--header 'accept: application/json'"
+        },
+        "reference": {
+          "javascript": "https://dev.whop.com/v2/reference/retrieve_profile",
+          "react": "https://dev.whop.com/v2/reference/retrieve_profile"
+        }
+      },
+      {
+        "name": "getAddress",
+        "summary": "Get the currently connected address\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const address = await sdk.wallet.getAddress();",
+          "python": "",
+          "go": "",
+          "react": "import { useAddress } from \"@thirdweb-dev/react\"\n\nconst App = () => {\n  const address = useAddress()\n\n  return <div>{address}</div>\n}"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/typescript/sdk.userwallet.getaddress",
+          "python": "",
+          "go": "",
+          "react": "https://portal.thirdweb.com/react/react.useaddress"
+        }
+      },
+      {
+        "name": "recoverAddress",
+        "summary": "Recover the signing address from a signed message\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const message = \"Sign this message...\";\nconst signature = await sdk.wallet.sign(message);\n\n// Now we can recover the signing address\nconst address = sdk.wallet.recoverAddress(message, signature);",
+          "python": "",
+          "go": "",
+          "react": "const sdk = useSDK();\n\nconst message = \"Sign this message...\";\nconst signature = await sdk.wallet.sign(message);\n\n// Now we can recover the signing address\nconst address = sdk.wallet.recoverAddress(message, signature);"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/typescript/sdk.userwallet.recoveraddress",
+          "python": "",
+          "go": "",
+          "react": "https://portal.thirdweb.com/typescript/sdk.userwallet.recoveraddress"
+        }
+      },
+      {
+        "name": "sign",
+        "summary": "Sign any message with the connected wallet private key\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "// This is the message to be signed\nconst message = \"Sign this message...\";\n\n// Now we can sign the message with the connected wallet\nconst signature = await sdk.wallet.sign(message);",
+          "python": "",
+          "go": "",
+          "react": "const sdk = useSDK();\n\n// This is the message to be signed\nconst message = \"Sign this message...\";\n\n// Now we can sign the message with the connected wallet\nconst signature = await sdk.wallet.sign(message);"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/typescript/sdk.userwallet.sign",
+          "python": "",
+          "go": "",
+          "react": "https://portal.thirdweb.com/typescript/sdk.userwallet.sign"
+        }
+      },
+      {
+        "name": "transfer",
+        "summary": "Transfer native or ERC20 tokens from this wallet to another wallet\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": " // transfer 0.8 ETH\nawait sdk.wallet.transfer(\"0x...\", 0.8);\n // transfer 0.8 tokens of `tokenContractAddress`\nawait sdk.wallet.transfer(\"0x...\", 0.8, tokenContractAddress);",
+          "python": "",
+          "go": "",
+          "react": "const sdk = useSDK();\n\n // transfer 0.8 ETH\nawait sdk.wallet.transfer(\"0x...\", 0.8);\n // transfer 0.8 tokens of `tokenContractAddress`\nawait sdk.wallet.transfer(\"0x...\", 0.8, tokenContractAddress);"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/typescript/sdk.userwallet.transfer",
+          "python": "",
+          "go": "",
+          "react": "https://portal.thirdweb.com/typescript/sdk.userwallet.transfer"
+        }
+      }
+    ],
+    "properties": [],
+    "reference": {
+      "typescript": "https://portal.thirdweb.com/typescript/sdk.UserWallet"
+    }
   }
 }

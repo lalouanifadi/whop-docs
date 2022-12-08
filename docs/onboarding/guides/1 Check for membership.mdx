@@ -1,23 +1,52 @@
 ---
-title: Check for access
+title: Gate your App
 slug: /guides/check-for-access
 ---
 
-While you build your app, you might find that you want to check if a user has access to a certain resource or not. These resources would be either:
-- Your company
-- A specific access pass
-- A specific experience
+import CodeSnippetWithSummary from "@components/CodeSnippetWithSummary";
 
-need active memebrship etc
+## Checking To See If A User Has Access
 
-### IGNORE
+While building your app, you may need to check if a user has access to a specific resource, such as a company, access pass, or experience. To check if a user has access, you can use the `/api/v2/me/has_access/:resource_id` endpoint. This endpoint allows you to check if the current user has an active membership for the specified resource.
 
-Write a guide for an API Docs guides website that tells a user how to check if a user holds an active membership for their company.
+An **active membership** is any membership with a status of trialing, active, past_due, or completed. This means that if the user has a membership with any of these statuses, they will be considered to have access to the specified resource.
 
-A membership is ownership of an access pass. They can use the endpoint `/me/companies/:company_id` to see if they have access
+### Making a Request
 
-If they do, it will respond with a membership object. If not, it will give a 404
+Here is an example of how to make a request to the `/api/v2/me/has_access/:resource_id` endpoint:
 
-Use code snippets to show how to make a request
 
-Tell them that this is how can they memebership-gate their app to make sure only people who should have access can use it
+<CodeSnippetWithSummary
+  contract={"CheckResource"}
+  name={"balance"}
+  dontShowSummary
+  showHr={false}
+/>
+
+In this example, `TOKEN` should be replaced with a valid access token for the user. The `resource_id` parameter should be replaced with the ID of the resource that you want to check the user's access to. The resource ID will have a prefix that indicates the type of resource, such as `biz_` for a company, `pass_` for an access pass, or `exp_` for an experience.
+
+### Response
+If the user has an active membership for the specified resource, the endpoint will return a JSON object containing information about the user's access, such as whether or not they have access and the status of their membership. For example:
+
+
+```json
+{
+  "valid": true
+}
+
+200 OK
+```
+
+If the user does not have an active membership for the specified resource, the endpoint will return a JSON object indicating that the user does not have access. For example:
+
+```json
+{
+  "valid": false
+}
+
+400 Bad Request
+```
+
+You can use the response from this endpoint to determine whether or not to allow the user access to the specified resource. For example, if the user has access, you could allow them to access the resource. If the user does not have access, you could redirect them to a page where they can purchase a membership or sign up for a trial.
+
+**Note**: The `past_due` membership status can be considered valid or invalid, depending on your company's settings. You should check your company's settings to determine how to handle this status

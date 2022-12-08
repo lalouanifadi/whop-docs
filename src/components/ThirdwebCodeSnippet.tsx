@@ -17,20 +17,14 @@ export default function ThirdwebCodeSnippet({
   languages = {},
   snippetOverrides,
 }) {
-  const languagesToShow = isSolana
-    ? {
-        react: true,
-        javascript: true,
-        python: false,
-        go: false,
-      }
-    : {
-        react: true,
-        javascript: true,
-        python: true,
-        go: true,
-        ...languages,
-      };
+  const languagesToShow = {
+    react: false,
+    javascript: true,
+    python: false,
+    go: false,
+    curl: true,
+    ...languages,
+  };
 
   if (!contract) {
     return null;
@@ -43,8 +37,8 @@ export default function ThirdwebCodeSnippet({
   const contractObject = isFeatureSnippet
     ? featureJsonData[contract]
     : isSolana
-    ? solanaData[contract]
-    : jsonData[contract];
+      ? solanaData[contract]
+      : jsonData[contract];
 
   if (!contractObject) {
     return null;

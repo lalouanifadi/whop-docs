@@ -80,7 +80,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "",
-      items: ["CLI", "Templates", "Guides", "SDK References"],
+      items: ["CLI", "Templates", "Guides", "SDK References", "API Reference"],
     },
   ];
 

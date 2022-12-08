@@ -173,8 +173,8 @@ const sidebars = {
 
     {
       type: "link",
-      label: "Guides",
-      href: "https://whop.com/blog/",
+      label: "API Reference",
+      href: "https://dev.whop.com/",
     },
     {
       type: "category",
