@@ -12,19 +12,17 @@ const contractHub = exampleRepos.filter((t) => t.name === "contract-hub")[0];
 export default function ExamplesContainer() {
   return (
     <>
-      <h2>Explore What's Possible</h2>
       {/* Featured Example 1 */}
       <FeaturedExample
         id={contractHub.name}
-        title="Contract Hub"
-        description="Explore what you can do with the SDK by interacting with prebuilt contracts and viewing code snippets."
+        title="Next JS Template"
+        description="Pre-boot your NextJS app and get out-of-the-box OAuth and membership-gating"
         image={{
           light: "/assets/ui-components.png",
           dark: "/assets/ui-components.png",
         }}
         links={{
-          github: contractHub.html_url,
-          demo: contractHub.homepage,
+          github: contractHub.html_url
         }}
         whichFirst={"image"}
       />
@@ -44,69 +42,6 @@ export default function ExamplesContainer() {
         whichFirst={"text"}
       /> */}
 
-      <h2>Featured Templates</h2>
-      <p>Start building your own app on top of one of our templates.</p>
-
-      {/* Getting Started ???  */}
-
-      {/* Create Utility */}
-      <h3>Create Utility</h3>
-
-      <div className="row" style={{ marginBottom: 24 }}>
-        <TemplateCard
-          t={exampleRepos.filter((t) => t.name === "nft-gated-website")[0]}
-        />
-        <TemplateCard
-          t={exampleRepos.filter((t) => t.name === "nft-staking-app")[0]}
-        />
-        <TemplateCard
-          t={exampleRepos.filter((t) => t.name === "play-to-earn-game")[0]}
-        />
-        <TemplateCard
-          t={exampleRepos.filter((t) => t.name === "community-rewards")[0]}
-        />
-      </div>
-
-      {/* Drop NFTs */}
-      <h3>Build Drops</h3>
-
-      <div className="row" style={{ marginBottom: 24 }}>
-        <TemplateCard
-          t={exampleRepos.filter((t) => t.name === "signature-drop")[0]}
-        />
-        <TemplateCard
-          t={exampleRepos.filter((t) => t.name === "nft-drop")[0]}
-        />
-        <TemplateCard
-          t={exampleRepos.filter((t) => t.name === "edition-drop")[0]}
-        />
-        <TemplateCard
-          t={exampleRepos.filter((t) => t.name === "token-drop")[0]}
-        />
-      </div>
-
-      {/* UI Components */}
-      <h3>Create Interfaces</h3>
-
-      <div className="row" style={{ marginBottom: 24 }}>
-        <TemplateCard
-          t={exampleRepos.filter((t) => t.name === "connect-wallet-button")[0]}
-        />
-        <TemplateCard
-          t={exampleRepos.filter((t) => t.name === "web3button")[0]}
-        />
-      </div>
-
-      {/* Login With Wallet */}
-      {/* Stripe */}
-      {/* Firebase */}
-
-      {/* Prebuilt Contracts */}
-
-      {/* All Templates */}
-      <h3>All Templates</h3>
-
-      <AllTemplatesContainer repos={exampleRepos} />
     </>
   );
 }

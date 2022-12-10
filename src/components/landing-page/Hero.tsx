@@ -12,9 +12,7 @@ export default function Hero() {
           <p className="hero-left-description">
             Welcome to the docs! Here you will find guides, references and
             resources that will help you build with Whop. Please be patient as
-            we work to make our docs more complete. We forked this repo from our
-            friends at ThirdWeb so some of their pages are still here! (They are
-            the coolest company ever)
+            we work to make our docs more complete. 
           </p>
         </div>
 

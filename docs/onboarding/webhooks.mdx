@@ -8,152 +8,38 @@ import ThemedImage from "@theme/ThemedImage";
 
 # Webhooks
 
-- Membership created
-    - This Webhook will fire whenever a user receives a membership
-    - Set up URL in webhooks section on your dashboard and send a test webhook
-    - Here is what the object will look like:
-        - xxx
-- Membership canceled
-- Receipt paid
-- Receipt failed payment
+You can use our webhooks to power your webapp with minimial integration on your side. We offer powerful webhooks on all key parts of the user journey. 
 
-Create, build and deploy your smart contracts and apps with our interactive command line interface.
+## Setup Instructions
 
-To see all of the available commands, run the following:
+Go to your dashboard and set up your webhook-listener URL in webhooks section on your dashboard. After it's inputted, you can send a test webhook to ensure it works.
 
-```bash
-npx thirdweb@latest
-```
+## List of webhooks 
 
-## Create
+### Membership goes valid
+  - This will fire whenever a membership goes to the valid state. This is most often upon a membership being created, or a user checking out.
+  - Here is an example:
+   ```
+      xxx
+    ```
 
-<div className="heroGrid">
-  
-  <div>
-Create a new project with thirdweb installed and configured.
+### Membership goes invalid
+  - This webhook will fire whenever a membership goes invalid. This is most often when a subscription is canceled or the membership expires.
+  - Here is what the object will look like:
+    ```
+      xxx
+    ```
+### Payment successful
+  - This webhook will fire whenever a payment is successful. This will send on new and existing memberships.
+  - Here is what the object will look like:
+  ```
+    xxx
+  ```
 
-Select the frameworks you know and love to get started quickly, by providing:
+### Payment attempt failed
+  - This webhook will fire whenever a payment attempt. This will only send on **existing memberships whose status is ALWAYS past_due**. 
+  - Here is what the object will look like:
+  ```
+    xxx
+  ```
 
-- A name for your project
-- A framework to build with
-- A language to write in
-
-</div>
-
-<div className="heroGridImageContainer">
-  <ThemedImage
-    sources={{
-      light: "/assets/create.png",
-      dark: "/assets/create.png",
-    }}
-    className="heroGridImage"
-    alt="thirdweb dashboard"
-  />
-</div>
-
-</div>
-
-```bash
-npx thirdweb@latest create
-```
-
-## Deploy
-
-<div className="heroGrid">
-  
-  <div>
-
-[Deploy](/deploy) your smart contracts to one of our [supported networks](https://blog.thirdweb.com/guides/which-network-should-you-use/) using the dashboard:
-
-- Compiles your smart contracts
-- Uploads the contract [ABI](https://docs.soliditylang.org/en/v0.8.17/abi-spec.html)s to IPFS
-- Allows you to [deploy](/deploy) them through the dashboard
-
-</div>
-
-<div className="heroGridImageContainer">
-  <ThemedImage
-    sources={{
-      light: "/assets/deploy.png",
-      dark: "/assets/deploy.png",
-    }}
-    className="heroGridImage"
-    alt="thirdweb dashboard"
-  />
-</div>
-
-</div>
-
-```bash
-npx thirdweb@latest deploy
-```
-
-## Release
-
-<div className="heroGrid">
-  
-  <div>
-
-Creates a versioned [release](/release) of your contract onto our registry:
-
-- Compiles your smart contracts
-- Uploads the contract [ABI](https://docs.soliditylang.org/en/v0.8.17/abi-spec.html)s to IPFS
-- Allows you to [release](/release) them through the dashboard
-
-</div>
-
-<div className="heroGridImageContainer">
-  <ThemedImage
-    sources={{
-      light: "/assets/release.png",
-      dark: "/assets/release.png",
-    }}
-    className="heroGridImage"
-    alt="thirdweb dashboard"
-  />
-</div>
-
-</div>
-
-```bash
-npx thirdweb@latest release
-```
-
-## Additional commands
-
-### Detect
-
-<div className="heroGrid">
-  
-  <div>
-
-<p>
-  Compile your smart contracts and detect any{" "}
-  <a href="/contractkit/features">features</a> you have implemented. This
-  command:
-</p>
-
-- Detects the framework you're using
-- Compiles all of your smart contracts
-- Prints out the [features](/contractkit/features) you have implemented for each contract
-
-</div>
-
-<div className="heroGridImageContainer">
-  <ThemedImage
-    sources={{
-      light: "/assets/detect.png",
-      dark: "/assets/detect.png",
-    }}
-    className="heroGridImage"
-    alt="thirdweb dashboard"
-  />
-</div>
-
-</div>
-
-```bash
-npx thirdweb@latest detect
-```
-
-<!-- ### Install CI -->
