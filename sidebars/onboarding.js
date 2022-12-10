@@ -129,7 +129,7 @@ const sidebars = {
       type: "doc",
       label: "Templates",
       id: "templates",
-    }
+    },
 
     {
       type: "link",
