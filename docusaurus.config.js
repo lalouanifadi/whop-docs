@@ -172,12 +172,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       image: "img/portal.png",
-      algolia: {
-        appId: "IAIE3FU2AD",
-        apiKey: "1d9ebc991c049c913bedcf3d50916922",
-        indexName: "thirdweb",
-        contextualSearch: false,
-      },
+  
       posthog: {
         apiKey: "phc_hKK4bo8cHZrKuAVXfXGpfNSLSJuucUnguAgt2j6dgSV",
         appUrl: "https://dash.whop.com", // optional
