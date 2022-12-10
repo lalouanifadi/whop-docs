@@ -136,35 +136,35 @@ const sidebars = {
       label: "API Reference",
       href: "https://dev.whop.com/",
     },
-    {
-      type: "category",
-      label: "SDK References",
-      className: "bottom-menu-group",
-      collapsible: true,
-      collapsed: true,
-      items: [
-        {
-          type: "link",
-          label: "JavaScript / TypeScript",
-          href: "/typescript",
-        },
-        {
-          type: "link",
-          label: "React",
-          href: "/react",
-        },
-        {
-          type: "link",
-          label: "Python",
-          href: "/python",
-        },
-        {
-          type: "link",
-          label: "Go",
-          href: "/go",
-        },
-      ],
-    },
+    // {
+    //   type: "category",
+    //   label: "SDK References",
+    //   className: "bottom-menu-group",
+    //   collapsible: true,
+    //   collapsed: true,
+    //   items: [
+    //     {
+    //       type: "link",
+    //       label: "JavaScript / TypeScript",
+    //       href: "/typescript",
+    //     },
+    //     {
+    //       type: "link",
+    //       label: "React",
+    //       href: "/react",
+    //     },
+    //     {
+    //       type: "link",
+    //       label: "Python",
+    //       href: "/python",
+    //     },
+    //     {
+    //       type: "link",
+    //       label: "Go",
+    //       href: "/go",
+    //     },
+    //   ],
+    // },
   ],
 
   buildContracts: [

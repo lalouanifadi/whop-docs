@@ -11,7 +11,7 @@ displayed_sidebar: nextjs
 </p>
 <h1 align="center">NextJS Guide</h1>
 <p align="center">
-<a href="https://discord.gg/whop-discord"><img alt="Join our Discord!" src="https://img.shields.io/discord/834227967404146718.svg?color=7289da&label=discord&logo=discord&style=flat"/></a>
+<a href="https://discord.com/invite/J5HS6MVQas"><img alt="Join our Discord!" src="https://img.shields.io/discord/834227967404146718.svg?color=7289da&label=discord&logo=discord&style=flat"/></a>
 
 </p>
 <p align="center"><strong>Easy setup for NextJS apps</strong></p>
