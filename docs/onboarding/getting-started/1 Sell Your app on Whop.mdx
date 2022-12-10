@@ -7,30 +7,19 @@ import QuickstartCard from "@components/QuickstartCard";
 import TwitterCard from "@components/ShareOnTwitterCard";
 import IntegrationPoints from "../../../src/components/getting-started/IntegrationPoints";
 
-Assuming that the developer has already signed up for a business account on dash.whop.com, they can follow these steps to sell their app on Whop.com:
+Selling on Whop.com is easy. If you're a developer with a business account on dash.whop.com, follow these steps to get started:
 
-1. Go to the "Passes" section on their dashboard and click on "Create Pass".
-2. Title the pass whatever they want, and add the necessary perks to the pass. For example, if they are selling access to a software, they should add a "Software" perk to the pass. If they are selling access to a web app, they can add a "Software Experience" or "Link Experience" perk to the pass.
-3. Set up pricing options for the pass. This includes deciding the cost of the pass, what payment options users can use, and other features such as free trials, expiration licenses (e.g. 1 week only), and other requirements.
+1. Retrieve your API keys from the "Developer" section on your dashboard settings page.
 
-4. Once the pass is set up, the developer can go to the "Developer" section on their dashboard settings page and retrieve their API keys.
+2. Set up Whop OAuth. This will allow users to log in and access their memberships after purchasing. Refer to our guide for help with this.
 
-5. To integrate Whop.com with their app, they can either use the pre-built NextJS template, which already has the infrastructure to gate their web app, or they can set it up from scratch.
+3. Once OAuth2 is set up, check if a user holds a pass using the /me/has_access/:id endpoint. You can find the documentation for this endpoint here.
 
-6. To set it up from scratch, the developer should first set up OAuth2. They can refer to our guide (link to guide) for help with this. They can retrieve their OAuth2 credentials from the same page as their API keys.
+4. Customize the user's experience on your app by pulling in their profile using the /me endpoint and displaying it on their dashboard. This can include their username, social accounts, profile picture, and other details.
 
-7. Once OAuth2 is set up, they can check if a user holds a pass using the `/me/access_passes/:pass_id` endpoint. If the user holds the pass, it will return their membership details; otherwise, it will return a 404.
+5. Every time a user accesses your app, check if they still have access by checking if they hold the pass.
 
-8. We recommend using our JavaScript SDK to interact with the API, as it makes it easier to integrate with their app.
-
-9. The developer can customize the user's experience on their app by pulling in their profile using the `/me` endpoint and displaying it on their dashboard. This can include their username, social accounts, profile picture, and other details.
-
-10. Every time a user accesses their app, the developer should check if they still have access to the app by checking if they hold the pass.
-
-11. If the developer wants to check if a user holds a specific experience, they can use the `/me/experiences/:experience_id` endpoint.
-
-By following these steps, the developer can easily sell their app on Whop.com and provide a seamless experience for their users. They can use the API and JavaScript SDK to integrate with their app and customize the user experience.
-
+By following these steps, you can easily sell your app on Whop.com and provide a seamless experience for your users. We recommend using our JavaScript SDK to interact with the API.
 
 
 ![Image](./assets/getting-api-keys.png)
@@ -42,3 +31,4 @@ By following these steps, the developer can easily sell their app on Whop.com an
 <TwitterCard
   text={`I am using @WhopIO new docs and they are fire for my app! 🔥>`}
 />
+

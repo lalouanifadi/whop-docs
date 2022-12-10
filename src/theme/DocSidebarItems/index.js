@@ -37,28 +37,22 @@ function DocSidebarItems({ items, ...props }) {
         "Home",
         "Platform Overview",
         "Getting Started",
-        "Create A Project",
+        "Authentication"
       ],
     },
-    {
-      title: "Authentication",
-      items: [
-        "API Keys",
-        "Implementing OAuth2"
-      ]
-    },
-    {
-      title: "Resources",
-      items: [
-        "Access Passes",
-        "Plans",
-        "Memberships",
-        "Engagement",
-        "Member Information",
-        "Payments",
-        "Experiences",
-      ],
-    },
+   
+    // {
+    //   title: "Resources",
+    //   items: [
+    //     "Access Passes",
+    //     "Plans",
+    //     "Memberships",
+    //     "Engagement",
+    //     "Member Information",
+    //     "Payments",
+    //     "Experiences",
+    //   ],
+    // },
     {
       title: "",
       items: ["Webhooks", "Templates", "SDK References", "API Reference"],

@@ -14,19 +14,7 @@ const products: Product[] = [
     name: "NextJS",
     description: "Deployed on Vercel, or somewhere else",
     link: "/nextjs",
-  },
-  {
-    image: "/assets/product/sdk.png",
-    name: "React Native App",
-    description: "For iPhone and Android",
-    link: "/react-native",
-  },
-  {
-    image: "/assets/product/extensions.png",
-    name: "Other",
-    description: "Anything else!",
-    link: "/misc-integrations",
-  },
+  }
 ];
 
 export default function IntegrationPoints() {
