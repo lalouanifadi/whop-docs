@@ -125,11 +125,11 @@ const sidebars = {
       label: "Webhooks",
       id: "webhooks",
     },
-    // {
-    //   type: "doc",
-    //   label: "Templates",
-    //   id: "templates",
-    // },
+    {
+      type: "doc",
+      label: "Templates",
+      id: "templates",
+    },
 
     {
       type: "link",

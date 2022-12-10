@@ -42,7 +42,7 @@ export default function FeaturedExample({
         <p>{description}</p>
 
         <div className="button-container">
-          <DemoButton link={links.demo} />
+          {/* <DemoButton link={links.demo} /> */}
           <ViewCodeButton link={links.github} />
         </div>
       </div>
