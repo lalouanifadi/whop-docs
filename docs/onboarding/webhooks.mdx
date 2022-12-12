@@ -8,37 +8,40 @@ import ThemedImage from "@theme/ThemedImage";
 
 # Webhooks
 
-You can use our webhooks to power your webapp with minimial integration on your side. We offer powerful webhooks on all key parts of the user journey. 
+Our webhooks provide powerful integration for your webapp with minimal effort on your end. We offer webhooks for key parts of the user journey, including membership validation and payment success/failure.
 
 ## Setup Instructions
 
-Go to your dashboard and set up your webhook-listener URL in webhooks section on your dashboard. After it's inputted, you can send a test webhook to ensure it works.
+To set up your webhook-listener URL, go to your dashboard and input it in the webhooks section. You can then send a test webhook to ensure it's working properly.
 
 ## List of webhooks 
 
 ### Membership goes valid
-  - This will fire whenever a membership goes to the valid state. This is most often upon a membership being created, or a user checking out.
-  - Here is an example:
+  - This webhook will fire when a membership becomes valid, typically when a membership is created or a user checks out. 
+
+  - Example:
    ```
       xxx
     ```
 
 ### Membership goes invalid
-  - This webhook will fire whenever a membership goes invalid. This is most often when a subscription is canceled or the membership expires.
-  - Here is what the object will look like:
+  - This webhook will fire when a membership becomes invalid, typically when a subscription is canceled or the membership expires.
+
+  - Example:
     ```
       xxx
     ```
 ### Payment successful
-  - This webhook will fire whenever a payment is successful. This will send on new and existing memberships.
-  - Here is what the object will look like:
+  - This webhook will fire when a payment is successful, for both new and existing memberships.
+
+  - Example:
   ```
     xxx
   ```
 
 ### Payment attempt failed
   - This webhook will fire whenever a payment attempt. This will only send on **existing memberships whose status is ALWAYS past_due**. 
-  - Here is what the object will look like:
+  - Example:
   ```
     xxx
   ```
