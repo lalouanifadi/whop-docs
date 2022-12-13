@@ -189,7 +189,7 @@ const config = {
           alt: "Whop Docs",
           src: "img/longlogo.png",
           href: "/",
-          srcDark: "img/longlogo.png",
+          srcDark: "img/longlogodark.png",
         },
       },
       footer: {
