@@ -10,18 +10,6 @@ type Product = {
 
 const products: Product[] = [
   {
-    name: "Quick Integration Guide",
-    image: "/assets/getting-started/quick-integration.png",
-    description: "Get started with Whop Webhooks in 15 minutes",
-    link: "/getting-started/business-app",
-  },
-  {
-    name: "Full Integration Guide",
-    image: "/assets/getting-started/full-integration.png",
-    description: "Take control with the full power of the Whop API",
-    link: "/getting-started/business-app",
-  },
-  {
     image: "/assets/getting-started/nextjs.png",
     name: "NextJS Template App",
     description: "Ready to deploy in minutes, with the Whop SDK built-in",
