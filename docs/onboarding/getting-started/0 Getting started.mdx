@@ -3,9 +3,8 @@ slug: /getting-started/getting-started
 title: Getting Started
 ---
 
-import QuickstartCard from "@components/QuickstartCard";
 import TwitterCard from "@components/ShareOnTwitterCard";
-import IntegrationPoints from "../../../src/components/getting-started/IntegrationPoints";
+import ProductCard from "../../../src/components/landing-page/ProductCard";
 
 Whop is an all in one platform for merchants to sell access to digital products.
 Thousands of software developers, content creators, traders, and savvy internet folks use Whop to sell software, web apps, Discord servers, courses, files and many other digital things.
@@ -20,11 +19,29 @@ To begin integrating with Whop, you'll first need to make sure you've created a 
 
 - If you want to quickly setup integrations with Whop to add some extra functionality to your project, we recommend checking out our [Quick Integration guide](/getting-started/business-app)
 - If you're looking for a little more granularity, our [Full Integration guide](/getting-started/custom-experience) will lead you through every step of setting up a project using the Whop API
-- If you just want to dive in to some code, our [NextJS Template App](/nextjs) is an easy solution. Built on the lastest version of NextJS, this template app is already optimized for integrations with Whop, letting you focus on what's important to your customers
 
 ### Next steps:
 
-<IntegrationPoints />
+<div className="explore-products-container">
+  <div className="row" style={{ marginBottom: 64 }}>
+    <div className="col col--4" key={0} style={{ padding: 8 }}>
+      <ProductCard
+        image={"/assets/getting-started/quick-integration.png"}
+        name={"Quick Integration Guide"}
+        description={"Get started with Whop Webhooks in 15 minutes"}
+        link={"/getting-started/business-app"}
+      />
+    </div>
+    <div className="col col--4" key={1} style={{ padding: 8 }}>
+      <ProductCard
+        image={"/assets/getting-started/full-integration.png"}
+        name={"Full Integration Guide"}
+        description={"Take control with the full power of the Whop API"}
+        link={"/getting-started/business-app"}
+      />
+    </div>
+  </div>
+</div>
 
 <TwitterCard
   text={`I am using @WhopIO new docs and they are fire for my app! 🔥`}
