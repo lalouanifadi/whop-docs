@@ -32,6 +32,18 @@ Checkout this guide to setup webhooks for your app: [Quick Integration Guide](/g
 4. What if my endpoint goes offline?
   - We will continue to attempt to send events to your specified URL. Once your endpoint's functionality restores, you'll begin receiving and processing events like normal.
 
+5. How long does my endpoint have to respond?
+  - Your server must respond to the request in 3 seconds or less. Otherwise, the request will timeout and it will be dropped.
+
+
+## Payload Information
+
+All webhooks will have the following header(s):
+```
+{ "Content-Type": "application/json" }
+```
+
+
 ## Event Types
 
 Whop currently sends the following events: `membership.went_valid`, `membership.went_invalid`, `payment.succeeded`, and `payment.failed`
@@ -41,6 +53,7 @@ All Whop API webhooks events follow a similar format. The root level of the obje
 Membership events will have a `data` object that is one-to-one with the [Membership object](https://dev.whop.com/reference/retrieve_membership) from the Whop API V2, with the `AccessPass`, `Plan`, and `User` expanded.
 
 Payment events will have a `data` object that is one-to-one with the [Payment object](https://dev.whop.com/reference/retrieve_payment) from the Whop API V2, with the `AccessPass`, `Plan`, and `User` expanded.
+
 
 ### Membership goes valid
   - This webhook will fire when a membership becomes valid, typically when a membership is created or a user checks out.
