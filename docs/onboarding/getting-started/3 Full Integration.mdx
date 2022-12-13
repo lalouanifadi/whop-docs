@@ -3,16 +3,29 @@ slug: /getting-started/custom-experience
 title: Full Integration
 ---
 
-Selling on Whop.com is easy. If you're a developer with a business account on dash.whop.com, follow these steps to get started:
+Integrating with Whop and the Whop API is easy. If you're a developer with a business account on [our dashboard](https://dash.whop.com), follow these steps to get started:
 
-1. Retrieve your API keys from the "Developer" section on your dashboard settings page.
+### Authentication
 
-2. Set up Whop OAuth. This will allow users to log in and access their memberships after purchasing. Refer to our guide for help with this.
+Navigate to your [Whop Developer settings](https://dash.whop.com/developer) retrieve your API key or OAuth2 credentials. Not sure which method to use?
 
-3. Once OAuth2 is set up, check if a user holds a pass using the /me/has_access/:id endpoint. You can find the documentation for this endpoint here.
+- Whop OAuth allows users to authenticate themselves through Whop, and allows you to make API requests **client-side**. Refer to the [OAuth2 Implementation guide](/authentication/oauth) for a more in-depth explanation on using OAuth.
 
-4. Customize the user's experience on your app by pulling in their profile using the /me endpoint and displaying it on their dashboard. This can include their username, social accounts, profile picture, and other details.
+- If you'd rather do your logic **server-side**, authentication with API keys is the way to go.
 
-5. Every time a user accesses your app, check if they still have access by checking if they hold the pass.
+### Gating Access with OAuth
 
-By following these steps, you can easily sell your app on Whop.com and provide a seamless experience for your users. We recommend using our JavaScript SDK to interact with the API.
+Once your OAuth implementation is set up, check if a user holds a pass using the `/me/has_access/:id` endpoint. You can find the documentation for this endpoint [here](https://dev.whop.com/reference/has_access).
+
+![Image](./assets/check-access.png)
+
+Customize the user's experience on your app by pulling in their profile using the various `/me` endpoints and displaying that info on your app. This can include their username, social accounts, profile picture, and other details.
+
+Every time a user accesses your app, check if they still have access by checking if they hold the pass.
+
+### Server-Side Integration
+
+Making any kind of script, software tool, or admin panel is simple with Whop API's server-side endpoints. Using one of our `list` endpoints, such as [List Memberships](https://dev.whop.com/reference/list_memberships),
+you can iterate over resources and take action based on logic you implement.
+
+![Image](./assets/list-memberships.png)
