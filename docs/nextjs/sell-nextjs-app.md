@@ -6,7 +6,7 @@ displayed_sidebar: nextjs
 
 Assuming you already have your access passes and plans setup on [Whop Dashboard](https://dash.whop.com), the below should be straightforward to implement. This is what allows you to properly grant customers purchasing from our marketplace access to your application.
 
-Before you begin, make sure to add a redirect URL to your Whop Dashboard developer settings under the oauth section [in the same place you found your API keys](/getting-started/selling-software-projects). This is where customers will be sent after purchase.
+Before you begin, make sure to add a redirect URL to your Whop Dashboard developer settings under the oauth section [in the same place you found your API keys](https://dash.whop.com/developer). This is where customers will be sent after purchase.
 
 For a better reference, feel free to look at **this branch** in one of our [example projects](https://github.com/whopio/whop-courses/tree/template).
 
