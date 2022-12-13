@@ -46,6 +46,7 @@ Payment events will have a `data` object that is one-to-one with the [Payment ob
   - This webhook will fire when a membership becomes valid, typically when a membership is created or a user checks out.
   - **Business Logic Example:** Mark a `User`'s subscription as `valid`, which allows them to access a gated section of my app.
   - **Event name:** `membership.went_valid`
+  - **Important Attributes:** `id`, `valid`, `status`, `user.id`, `access_pass.id`
 
   - **Example Payload:**
 ```
@@ -114,6 +115,7 @@ Payment events will have a `data` object that is one-to-one with the [Payment ob
   - This webhook will fire when a membership becomes invalid, typically when a subscription is canceled or the membership expires.
   - **Business Logic Example:** Mark a `User`'s subscription as `invalid`, which blocks them from accessing a gated section of my app.
   - **Event name:** `membership.went_invalid`
+  - **Important Attributes:** `id`, `valid`, `status`, `user.id`, `access_pass.id`
 
   - **Example Payload:**
 ```
@@ -182,6 +184,7 @@ Payment events will have a `data` object that is one-to-one with the [Payment ob
   - This webhook will fire when a payment is successful, for both new and existing memberships.
   - **Business Logic Example:** Update a `User`'s credit balance with the amount of the payment and send them a receipt via email.
   - **Event name:** `payment.succeeded`
+  - **Important Attributes:** `id`, `membership`, `status`, `final_amount`, `user.id`, `access_pass.id`
 
   - **Example Payload:**
 ```
@@ -251,6 +254,8 @@ Payment events will have a `data` object that is one-to-one with the [Payment ob
   - This webhook will fire whenever a payment attempt fails. This is usually due to a card having insufficient funds, or a crypto payment not having a proper allowance or balance.
   - **Business Logic Example:** Record the failed payment attempt so that you can remind the user with an overlay inside of your app to have them update their payment method.
   - **Event name:** `payment.failed`
+  - **Important Attributes:** `id`, `membership`, `status`, `final_amount`, `user.id`, `access_pass.id`
+
   - **Example Payload:**
 
 ```
