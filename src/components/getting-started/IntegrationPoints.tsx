@@ -11,13 +11,13 @@ type Product = {
 const products: Product[] = [
   {
     name: "Quick Integration Guide",
-    image: "/assets/getting-started/quick-start.png",
+    image: "/assets/getting-started/quick-integration.png",
     description: "Get started with Whop Webhooks in 15 minutes",
     link: "/getting-started/business-app",
   },
   {
     name: "Full Integration Guide",
-    image: "/assets/getting-started/quick-start.png",
+    image: "/assets/getting-started/full-integration.png",
     description: "Take control with the full power of the Whop API",
     link: "/getting-started/business-app",
   },
