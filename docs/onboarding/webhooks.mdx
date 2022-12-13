@@ -19,6 +19,10 @@ Checkout this guide to setup webhooks for your app: [Quick Integration Guide](/g
 1. What is a webhook?
   - A webhook is a way for Whop to send your application information about your users and their membership status. You can use this information to update your own database or integration accordingly.
 
+2. Why use webhooks?
+  - Instead of having to spend time integrating multiple API calls, endpoints, and data fetches, webhooks simplify the integration process by facilitating all communication between your application and Whop through a single channel.
+  Additionally, you won't have to worry about rate limits.
+
 2. Are all events sent to the same endpoint?
   - Yes, all events are sent to the endpoint you configure in your [developer settings](https://dash.whop.com/developer). However, you can distinguish between events by looking at the `event` field in the payload on the root level of the object.
 
@@ -30,19 +34,20 @@ Checkout this guide to setup webhooks for your app: [Quick Integration Guide](/g
 
 ## Event Types
 
-Below is the list of all of the different event types you can / will receive to your endpoint.
+Whop currently sends the following events: `membership.went_valid`, `membership.went_invalid`, `payment.succeeded`, and `payment.failed`
 
-All Whop API webhooks events follow a similar format. The root level of the object will always have an `event` key-value pair, and a `data` key-value pair. Event will describe the type of event being received by your server, and `data` will contain the resource related to the request.
+All Whop API webhooks events follow a similar format. The root level of the object will always have an `event` key, and a `data` key. Event will be a string describing the type of event being received by your server, and `data` will be an object containing the resource related to the request.
 
-Membership events will have a `data` object that is one-to-one with the [Membership object](https://dev.whop.com/reference/retrieve_membership) from the Whop API V2, with the AccessPass and Plan expanded.
+Membership events will have a `data` object that is one-to-one with the [Membership object](https://dev.whop.com/reference/retrieve_membership) from the Whop API V2, with the `AccessPass`, `Plan`, and `User` expanded.
 
-Payment events will have a `data` object that is one-to-one with the [Payment object](https://dev.whop.com/reference/retrieve_payment) from the Whop API V2, with the AccessPass and Plan expanded.
+Payment events will have a `data` object that is one-to-one with the [Payment object](https://dev.whop.com/reference/retrieve_payment) from the Whop API V2, with the `AccessPass`, `Plan`, and `User` expanded.
 
 ### Membership goes valid
   - This webhook will fire when a membership becomes valid, typically when a membership is created or a user checks out.
-  - Event name: `membership.went_valid`
+  - **Business Logic Example:** Mark a `User`'s subscription as `valid`, which allows them to access a gated section of my app.
+  - **Event name:** `membership.went_valid`
 
-  - Example:
+  - **Example Payload:**
 ```
 {
   "action": "membership.went_valid",
@@ -55,7 +60,13 @@ Payment events will have a `data` object that is one-to-one with the [Payment ob
       "name": "Demo",
       "visibility": "visible"
     },
-    "user": "user_6jwBLroz2fSAB",
+    "user": {
+      "id": "user_6jwBLroz2fSAB",
+      "username": "userebd0603178",
+      "email": "email603180@gmail.com",
+      "profile_pic_url": "https://ui-avatars.com/api/?name=name603180&background=13192c&color=fff",
+      "social_accounts": []
+    },
     "plan": {
       "id": "plan_gU2ZhthbGX4ez",
       "access_pass": {
@@ -101,9 +112,10 @@ Payment events will have a `data` object that is one-to-one with the [Payment ob
 
 ### Membership goes invalid
   - This webhook will fire when a membership becomes invalid, typically when a subscription is canceled or the membership expires.
-  - Event name: `membership.went_invalid`
+  - **Business Logic Example:** Mark a `User`'s subscription as `invalid`, which blocks them from accessing a gated section of my app.
+  - **Event name:** `membership.went_invalid`
 
-  - Example:
+  - **Example Payload:**
 ```
 {
   "action": "membership.went_invalid",
@@ -116,7 +128,13 @@ Payment events will have a `data` object that is one-to-one with the [Payment ob
       "name": "Demo",
       "visibility": "visible"
     },
-    "user": "user_6jwBLroz2fSAB",
+    "user": {
+      "id": "user_6jwBLroz2fSAB",
+      "username": "userebd0603178",
+      "email": "email603180@gmail.com",
+      "profile_pic_url": "https://ui-avatars.com/api/?name=name603180&background=13192c&color=fff",
+      "social_accounts": []
+    },
     "plan": {
       "id": "plan_gU2ZhthbGX4ez",
       "access_pass": {
@@ -162,9 +180,10 @@ Payment events will have a `data` object that is one-to-one with the [Payment ob
 
 ### Payment successful
   - This webhook will fire when a payment is successful, for both new and existing memberships.
-  - Event name: `payment.succeeded`
+  - **Business Logic Example:** Update a `User`'s credit balance with the amount of the payment and send them a receipt via email.
+  - **Event name:** `payment.succeeded`
 
-  - Example:
+  - **Example Payload:**
 ```
 {
   "action": "payment.succeeded",
@@ -205,7 +224,13 @@ Payment events will have a `data` object that is one-to-one with the [Payment ob
       "stock": 0,
       "unlimited_stock": true
     },
-    "user": "user_Jb8zfzczd79I8",
+    "user": {
+      "id": "user_6jwBLroz2fSAB",
+      "username": "userebd0603178",
+      "email": "email603180@gmail.com",
+      "profile_pic_url": "https://ui-avatars.com/api/?name=name603180&background=13192c&color=fff",
+      "social_accounts": []
+    },
     "final_amount": 2,
     "subtotal": 2,
     "currency": "usd",
@@ -224,8 +249,9 @@ Payment events will have a `data` object that is one-to-one with the [Payment ob
 
 ### Payment attempt failed
   - This webhook will fire whenever a payment attempt fails. This is usually due to a card having insufficient funds, or a crypto payment not having a proper allowance or balance.
-  - Event name: `payment.failed`
-  - Example:
+  - **Business Logic Example:** Record the failed payment attempt so that you can remind the user with an overlay inside of your app to have them update their payment method.
+  - **Event name:** `payment.failed`
+  - **Example Payload:**
 
 ```
 {
@@ -267,7 +293,13 @@ Payment events will have a `data` object that is one-to-one with the [Payment ob
       "stock": 20,
       "unlimited_stock": true
     },
-    "user": "user_lekbopSVe2qxm",
+    "user": {
+      "id": "user_6jwBLroz2fSAB",
+      "username": "userebd0603178",
+      "email": "email603180@gmail.com",
+      "profile_pic_url": "https://ui-avatars.com/api/?name=name603180&background=13192c&color=fff",
+      "social_accounts": []
+    },
     "final_amount": 0.0029496610839414555,
     "subtotal": 0.0029496610839414555,
     "currency": null,
