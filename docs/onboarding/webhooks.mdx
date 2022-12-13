@@ -12,37 +12,274 @@ Our webhooks provide powerful integration for your webapp with minimal effort on
 
 ## Setup Instructions
 
-To set up your webhook-listener URL, go to your dashboard and input it in the webhooks section. You can then send a test webhook to ensure it's working properly.
+Checkout this guide to setup webhooks for your app: [Quick Integration Guide](/getting-started/quick-integration)
 
-## List of webhooks 
+## FAQ
+
+1. What is a webhook?
+  - A webhook is a way for Whop to send your application information about your users and their membership status. You can use this information to update your own database or integration accordingly.
+
+2. Are all events sent to the same endpoint?
+  - Yes, all events are sent to the endpoint you configure in your [developer settings](https://dash.whop.com/developer). However, you can distinguish between events by looking at the `event` field in the payload on the root level of the object.
+
+3. How quickly are events sent?
+  - Webhooks events are sent as soon as the action takes place on our platform. You should expect a delay of no longer than a **few seconds**. 
+
+4. What if my endpoint goes offline?
+  - We will continue to attempt to send events to your specified URL. Once your endpoint's functionality restores, you'll begin receiving and processing events like normal.
+
+## Event Types
+
+Below is the list of all of the different event types you can / will receive to your endpoint.
+
+All Whop API webhooks events follow a similar format. The root level of the object will always have an `event` key-value pair, and a `data` key-value pair. Event will describe the type of event being received by your server, and `data` will contain the resource related to the request.
+
+Membership events will have a `data` object that is one-to-one with the [Membership object](https://dev.whop.com/reference/retrieve_membership) from the Whop API V2, with the AccessPass and Plan expanded.
+
+Payment events will have a `data` object that is one-to-one with the [Payment object](https://dev.whop.com/reference/retrieve_payment) from the Whop API V2, with the AccessPass and Plan expanded.
 
 ### Membership goes valid
-  - This webhook will fire when a membership becomes valid, typically when a membership is created or a user checks out. 
+  - This webhook will fire when a membership becomes valid, typically when a membership is created or a user checks out.
+  - Event name: `membership.went_valid`
 
   - Example:
-   ```
-      xxx
-    ```
+```
+{
+  "action": "membership.went_valid",
+  "data": {
+    "id": "mem_DWWmfqMNSk5TVF",
+    "created_at": "2022-12-05 02:28:57 +0200",
+    "access_pass": {
+      "id": "pass_mPTCDbFCVK0Qs",
+      "created_at": "2022-06-11 21:00:17 +0200",
+      "name": "Demo",
+      "visibility": "visible"
+    },
+    "user": "user_6jwBLroz2fSAB",
+    "plan": {
+      "id": "plan_gU2ZhthbGX4ez",
+      "access_pass": {
+        "id": "pass_mPTCDbFCVK0Qs",
+        "created_at": "2022-06-11 21:00:17 +0200",
+        "name": "Demo",
+        "visibility": "visible"
+      },
+      "plan_type": "renewal",
+      "release_method": "buy_now",
+      "visibility": "visible",
+      "billing_period": 30,
+      "internal_notes": "Demo plan",
+      "metadata": {},
+      "direct_link": "https://whop.com/demo/checkout/plan_gU2ZhthbGX4ez",
+      "renewal_price": "1.0",
+      "initial_price": "0.0",
+      "base_currency": "usd",
+      "created_at": "2022-06-29 04:09:29 +0200",
+      "requirements": {},
+      "release_method_settings": {
+        "max_entries": null,
+        "nft_weighted_entries": false
+      },
+      "card_payments": true,
+      "stock": 100,
+      "unlimited_stock": true
+    },
+    "status": "active",
+    "license_key": "DEMO-508ED6-8D5E4B16-2A409FW",
+    "metadata": {},
+    "valid": true,
+    "quantity": 1,
+    "renewal_period_start": "2022-12-05 02:28:57 +0200",
+    "renewal_period_end": "2023-01-04 02:28:57 +0200",
+    "wallet_address": null,
+    "custom_fields_responses": {},
+    "discord": null,
+    "email": "email603180@gmail.com"
+  }
+}
+```
 
 ### Membership goes invalid
   - This webhook will fire when a membership becomes invalid, typically when a subscription is canceled or the membership expires.
+  - Event name: `membership.went_invalid`
 
   - Example:
-    ```
-      xxx
-    ```
+```
+{
+  "action": "membership.went_invalid",
+  "data": {
+    "id": "mem_DWWmfqMNSk5TVF",
+    "created_at": "2022-12-05 02:28:57 +0200",
+    "access_pass": {
+      "id": "pass_mPTCDbFCVK0Qs",
+      "created_at": "2022-06-11 21:00:17 +0200",
+      "name": "Demo",
+      "visibility": "visible"
+    },
+    "user": "user_6jwBLroz2fSAB",
+    "plan": {
+      "id": "plan_gU2ZhthbGX4ez",
+      "access_pass": {
+        "id": "pass_mPTCDbFCVK0Qs",
+        "created_at": "2022-06-11 21:00:17 +0200",
+        "name": "Demo",
+        "visibility": "visible"
+      },
+      "plan_type": "renewal",
+      "release_method": "buy_now",
+      "visibility": "visible",
+      "billing_period": 30,
+      "internal_notes": "Demo plan",
+      "metadata": {},
+      "direct_link": "https://whop.com/demo/checkout/plan_gU2ZhthbGX4ez",
+      "renewal_price": "1.0",
+      "initial_price": "0.0",
+      "base_currency": "usd",
+      "created_at": "2022-06-29 04:09:29 +0200",
+      "requirements": {},
+      "release_method_settings": {
+        "max_entries": null,
+        "nft_weighted_entries": false
+      },
+      "card_payments": true,
+      "stock": 100,
+      "unlimited_stock": true
+    },
+    "status": "canceled",
+    "license_key": "DEMO-508ED6-8D5E4B16-2A409FW",
+    "metadata": {},
+    "valid": false,
+    "quantity": 1,
+    "renewal_period_start": "2022-12-05 02:28:57 +0200",
+    "renewal_period_end": "2023-01-04 02:28:57 +0200",
+    "wallet_address": null,
+    "custom_fields_responses": {},
+    "discord": null,
+    "email": "email603180@gmail.com"
+  }
+}
+```
+
 ### Payment successful
   - This webhook will fire when a payment is successful, for both new and existing memberships.
+  - Event name: `payment.succeeded`
 
   - Example:
-  ```
-    xxx
-  ```
+```
+{
+  "action": "payment.succeeded",
+  "data": {
+    "id": "pay_1D7SDQTMVeaufA",
+    "access_pass": {
+      "id": "pass_otXLekszk9Uk9",
+      "created_at": "2022-12-01 23:24:44 +0200",
+      "name": "Demo",
+      "visibility": "visible"
+    },
+    "membership": "mem_pfg3jNytcSXzjW",
+    "plan": {
+      "id": "plan_HsRwOtRHLmQSl",
+      "access_pass": {
+        "id": "pass_otXLekszk9Uk9",
+        "created_at": "2022-12-01 23:24:44 +0200",
+        "name": "Demo",
+        "visibility": "visible"
+      },
+      "plan_type": "one_time",
+      "release_method": "buy_now",
+      "visibility": "visible",
+      "billing_period": null,
+      "internal_notes": null,
+      "metadata": {},
+      "direct_link": "http://whop.com/demo/checkout/plan_HsRwOtRHLmQSl",
+      "renewal_price": "0.0",
+      "initial_price": "2.0",
+      "base_currency": "usd",
+      "created_at": "2022-12-08 18:58:55 +0200",
+      "requirements": {},
+      "release_method_settings": {
+        "max_entries": null,
+        "nft_weighted_entries": null
+      },
+      "card_payments": true,
+      "stock": 0,
+      "unlimited_stock": true
+    },
+    "user": "user_Jb8zfzczd79I8",
+    "final_amount": 2,
+    "subtotal": 2,
+    "currency": "usd",
+    "last4": null,
+    "last_payment_attempt": null,
+    "next_payment_attempt": null,
+    "payments_failed": 0,
+    "payment_processor": "coinbase",
+    "refunded_amount": 0,
+    "refunded_at": null,
+    "status": "paid",
+    "wallet_address": null
+  }
+}
+```
 
 ### Payment attempt failed
-  - This webhook will fire whenever a payment attempt. This will only send on **existing memberships whose status is ALWAYS past_due**. 
+  - This webhook will fire whenever a payment attempt fails. This is usually due to a card having insufficient funds, or a crypto payment not having a proper allowance or balance.
+  - Event name: `payment.failed`
   - Example:
-  ```
-    xxx
-  ```
 
+```
+{
+  "action": "payment.failed",
+  "data": {
+    "id": "pay_3v2pdsUFkI7mXy",
+    "access_pass": {
+      "id": "pass_mPTCDbFCVK0Qs",
+      "created_at": "2022-06-11 21:00:17 +0200",
+      "name": "Demo",
+      "visibility": "visible"
+    },
+    "membership": "mem_LpayGM259DG7pe",
+    "plan": {
+      "id": "plan_jdtuNrUDY4nma",
+      "access_pass": {
+        "id": "pass_mPTCDbFCVK0Qs",
+        "created_at": "2022-06-11 21:00:17 +0200",
+        "name": "Demo",
+        "visibility": "visible"
+      },
+      "plan_type": "renewal",
+      "release_method": "buy_now",
+      "visibility": "visible",
+      "billing_period": 30,
+      "internal_notes": "Demo plan",
+      "metadata": {},
+      "direct_link": "http://whop.com/demo/checkout/plan_jdtuNrUDY4nma",
+      "renewal_price": "5.0",
+      "initial_price": "0.0",
+      "base_currency": "usd",
+      "created_at": "2022-07-22 18:53:49 +0200",
+      "requirements": {},
+      "release_method_settings": {
+        "max_entries": null,
+        "nft_weighted_entries": false
+      },
+      "card_payments": false,
+      "stock": 20,
+      "unlimited_stock": true
+    },
+    "user": "user_lekbopSVe2qxm",
+    "final_amount": 0.0029496610839414555,
+    "subtotal": 0.0029496610839414555,
+    "currency": null,
+    "last4": null,
+    "last_payment_attempt": "2022-08-01 20:05:07 +0200",
+    "next_payment_attempt": "2022-08-03 08:05:09 +0200",
+    "payments_failed": 4,
+    "payment_processor": "eth",
+    "refunded_amount": 0,
+    "refunded_at": null,
+    "status": "open",
+    "wallet_address": "0x777777777777777777777777777777777777"
+  }
+}
+```
