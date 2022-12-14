@@ -61,9 +61,9 @@ Here is an abbreviated example of the payload that would have been sent to your 
 
 Once you start receiving events, the next step is to make use of them so that you can deliver access of your product to the User who just purchased. Here is an example database you can build:
 
-- Make a users table
+- Make a `Users` table
   - Store the `user.id` and the `user.email` from the event payload
-- Make a subscriptions table
+- Make a `Subscriptions` table
   - Store the `Membership` `id` from the event payload
   - Store the `valid` boolean from the event payload
   - Attach it to the user you just made
@@ -84,4 +84,4 @@ Once your business logic is ready, you'll want to test your integration to make 
 
 ### Continue setup
 
-Now that your developer integration is ready, you'll want to continue configuring your dashboard by setting up your `AccessPasses`, `Plans`, and `Experiences` before you launch. Click [here](/getting-started/getting-started#finish-setup) to continue our step-by-step guide.
+Now that your developer integration is ready, you'll want to continue configuring your dashboard by setting up your `AccessPasses`, `Plans`, and `Experiences` before you launch. Click [here](/getting-started/sell-access#finish-setup) to continue our step-by-step guide.

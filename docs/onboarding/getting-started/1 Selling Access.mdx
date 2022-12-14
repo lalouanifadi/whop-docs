@@ -1,6 +1,6 @@
 ---
-slug: /getting-started/getting-started
-title: Getting Started
+slug: /getting-started/sell-access
+title: Selling Access to your Software
 ---
 
 import TwitterCard from "@components/ShareOnTwitterCard";
@@ -9,9 +9,8 @@ import ProductCard from "../../../src/components/landing-page/ProductCard";
 Whop is an all in one platform for merchants to sell access to digital products.
 Thousands of software developers, content creators, traders, and savvy internet folks
 use Whop to sell software, web apps, Discord servers, courses, files and many other
-digital things. Integrating with the Whop API gives you complete control over the
-experiences you offer to customers, the memberships your users own, how you manage
-your payments, and much more!
+digital things. Selling access to your software/app/website/etc has **never been easier**, Whop's API
+and OAuth implementation mean you can start getting paid for your work with only a few lines of code.
 
 To begin integrating with Whop, you'll first need to make sure you've created a company on the [Whop Dashboard](https://dash.whop.com).
 ![Image](./assets/create-company.png)
@@ -24,8 +23,8 @@ It'll be easiest to create a free `Plan` that you can purchase as a test. Click 
   Once you have a company set up, the next steps depend on your end goal:
 </p>
 
-- If you want to quickly setup integrations with Whop to add some extra functionality to your project, we recommend checking out our [Quick Integration guide](/getting-started/business-app)
-- If you're looking for a little more granularity, our [Full Integration guide](/getting-started/custom-experience) will lead you through every step of setting up a project using the Whop API
+- If you want to setup integrations with Whop to start collecting payments **fast**, we recommend checking out our [Webhook Integration guide](/getting-started/integrate-via-webhooks)
+- If you're looking to build out a more in-depth integration for your users, our [OAuth/API Integration guide](/getting-started/integrate-via-api) will lead you through every step of setting up a project using Whop OAuth and API
 
 ### Next steps:
 
@@ -36,15 +35,17 @@ It'll be easiest to create a free `Plan` that you can purchase as a test. Click 
         image={"/assets/getting-started/quick-integration.png"}
         name={"Quick Integration Guide"}
         description={"Get started with Whop Webhooks in 15 minutes"}
-        link={"/getting-started/business-app"}
+        link={"/getting-started/integrate-via-webhooks"}
       />
     </div>
     <div className="col col--4" key={1} style={{ padding: 8 }}>
       <ProductCard
         image={"/assets/getting-started/full-integration.png"}
         name={"Full Integration Guide"}
-        description={"Take control with the full power of the Whop API"}
-        link={"/getting-started/business-app"}
+        description={
+          "Take control with the full power of the Whop API and OAuth"
+        }
+        link={"/getting-started/integrate-via-api"}
       />
     </div>
   </div>
