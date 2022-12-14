@@ -46,7 +46,11 @@ All webhooks will have the following header(s):
 
 ## Event Types
 
-Whop currently sends the following events: `membership.went_valid`, `membership.went_invalid`, `payment.succeeded`, and `payment.failed`
+Whop currently sends the following events: 
+- `membership.went_valid`
+- `membership.went_invalid`
+- `payment.succeeded`
+- `payment.failed`
 
 All Whop API webhooks events follow a similar format. The root level of the object will always have an `event` key, and a `data` key. Event will be a string describing the type of event being received by your server, and `data` will be an object containing the resource related to the request.
 

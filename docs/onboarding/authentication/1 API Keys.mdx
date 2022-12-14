@@ -4,18 +4,12 @@ slug: /authentication/api-keys
 ---
 
 ## Using the Whop API
-To make requests to the Whop API, you are required to pass two headers.
 
-- `Authentication` - This will contain your API key. It should look like this:
+To make requests to the Whop API, you are required to an authentication header, which will contain your API key. It should look like this:
+
 ```
 Authorization: Bearer YOUR_API_KEY_HERE
 ```
-- `Whop-Company` - This is the ID the company you are making requests on behalf of. It should look like this:
-```
-Whop-Company: <biz_id>
-```
-You can get this from your dashboard here.
-
 
 It's important to keep your API keys safe and secure. Do not share them with anyone. You should also regularly check the business dashboard in the settings to make sure that only active keys are being used.
 
