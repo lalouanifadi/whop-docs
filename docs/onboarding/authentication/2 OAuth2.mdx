@@ -7,13 +7,14 @@ slug: /authentication/oauth
 
 OAuth2 is a protocol that allows a user to grant access to their information on one website (the "service provider") to another website (the "client") without sharing their password. This is often used to allow users to log in to a client website using their existing accounts on popular services like Google, Facebook, or Twitter.
 
-By implementing OAuth2 with our API, you can provide a seamless and secure login experience for your users. This can help to increase user engagement and retention, and to improve the overall user experience of your product.
-
+By implementing OAuth2 with the Whop API, you can provide a seamless and secure login experience for your users. This can help to increase user engagement and retention, and to improve the overall user experience of your product.
 
 ### How to implement OAuth2 with Whop
+
 To implement OAuth2 on Whop, you will need to register a company on Whop, and head to your [developer settings](https://dash.whop.com/developer) page to obtain your Client ID and Client Secret. These keys will be used to identify your website/app and authenticate it to the Whop API.
 
 Once you have your keys, you can implement the OAuth2 flow in your website by redirecting the user to the Whop login page, where they can choose the service they want to log in with. Whop supports the following services:
+
 - Email + Password
 - Gmail
 - Apple
@@ -24,7 +25,6 @@ Once you have your keys, you can implement the OAuth2 flow in your website by re
 After the user logs in and grants your website permission, they will be redirected back to your website with an access token. This token represents the user and allows your website to make API requests on their behalf.
 
 All of the endpoints that you can use for a logged-in user are located under the /me section of the API. This includes methods for accessing the user's profile information, their social connections, their memberships, and more. You can use this information to build a personalized experience for each user on your website.
-
 
 ### Example implementation
 
@@ -37,6 +37,7 @@ The main logic behind OAuth can be done in three stages. First, you will need to
 ```
 
 Once the user has authenticated themselves on the Whop OAuth Portal, they will be redirected back to the redirect_uri specified. This link will look something like this:
+
 ```
 https://redirect_uri.com/auth/whop/callback?code=RANDOM_AUTH_CODE
 ```
@@ -61,8 +62,8 @@ let response = await fetch("https://data.whop.com/oauth/token", {
 let parsed_response = response.json()
 let access_token = parsed_response.access_token
 ```
-And now your user is authenticated! You can store this access_token as a cookie or store it elsewhere, and use to make requests client-side (using this access token as the bearer token of requests)
 
+And now your user is authenticated! You can store this access_token as a cookie or store it elsewhere, and use to make requests client-side (using this access token as the bearer token of requests)
 
 [**Click here to view our API reference**](https://dev.whop.com/v2.0/reference/oauth-implementation)
 

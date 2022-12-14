@@ -17,19 +17,13 @@ Thus, your application is simply responsible for accepting incoming requests fro
 
 # Guide
 
-### 1. Getting ready to test
-
-It'll be easiest to create a free `Plan` that you can purchase as a test. Click the **Add pricing option** button on the right side of the [home screen](https://dash.whop.com/home?welcome=true), and click on the **Free to join** option to properly setup the `Plan`. Before you save, head to the `visibility` tab to make the `Plan` `hidden` so only you can access it while testing.
-
-![](https://i.imgur.com/YF9u1Up.png)
-
-### 2. Configure your webhook url
+### 1. Configure your webhook url
 
 The Whop Business dashboard has a dedicated [developer settings page](https://dash.whop.com/developer), where you'll be able to access, update, and manage all things related to Whop API. This is where you'll begin configuring your webhook endpoint URL.
 
 ![](https://i.imgur.com/VVpkNxX.png)
 
-### 3. Test your endpoint
+### 2. Test your endpoint
 
 Enter your correct route into the modal and click the **Send test webhook** button. Our server will attempt to `POST` an example webhook event to the endpoint your provided. If your application accepts the request and returns a 200 HTTP response code, you'll see a green message saying "Test successful". Now, your endpoint will begin receiving events.
 
@@ -67,13 +61,13 @@ Here is an abbreviated example of the payload that would have been sent to your 
 }
 ```
 
-### 4. Test your integration
+### 3. Test your integration
 
 Now that your endpoint is configured, you'll want to test your integration to make sure events are handled properly by your application. Using the free `Plan` you made earlier, you can purchase a free `Membership` to your company, and wait for the `membership.went_valid` to be sent to your server. Similarly, if you want to test the `membership.went_invalid` event, you can terminate the free `Membership` you just purchased by navigating to the [members](https://dash.whop.com/members) page and opening your `User`'s profile.
 
 ![](https://i.imgur.com/lNsrc3Q.png)
 
-### 5. Developer setup complete 
+### 4. Developer setup complete 
 
 You are now configured to listen for events from your Whop Business dashboard. If you'd like to learn more about the different types of events you can receive and their respective payloads, head to our [Webhooks guide](/webhooks).
 
