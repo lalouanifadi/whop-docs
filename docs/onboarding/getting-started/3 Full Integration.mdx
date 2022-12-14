@@ -9,23 +9,26 @@ import IntegrationPoints from "../../../src/components/getting-started/Integrati
 
 Integrating with Whop and the Whop API is easy. If you're a developer with a business account on [our dashboard](https://dash.whop.com), follow these steps to get started:
 
-### 1. Choosing Your Authentication Method(s)
+### Prerequisites
 
-Navigate to your [Whop Developer settings](https://dash.whop.com/developer) retrieve your API key or OAuth2 credentials. Not sure which method to use?
+To implement OAuth2 on Whop, you will need to register a company on Whop, and head to your [developer settings page](https://dash.whop.com/developer) to obtain your Client ID and Client Secret.
+These keys will be used to identify your website/app and authenticate it to the Whop API.
+In order to complete the OAuth setup process, you must also specify a redirect URL. 
+This URL should be an endpoint on your website that is specifically designed to receive responses from the service. 
+Once you receive a response, you can use the user's access tokens to grant them access to the requested resources.
+![Image](./assets/oauth-setup.png)
 
-- Whop OAuth allows users to authenticate themselves through Whop, and allows you to make API requests **client-side** on behalf of them. This is important for when you need to ensure the user is really who they say they are.
-  Refer to the [OAuth2 Implementation guide](/authentication/oauth) for a more in-depth explanation on using OAuth.
+### Implementing Whop OAuth
 
-- For any kind of logic you want to do **server-side**, authentication with API keys is the way to go. This means if you are using Whop OAuth, there's a chance you will be using your API key as well.
-
-### 2. Authenticating with OAuth
-
-First, you will need to send your users to the Whop OAuth Portal. The URL might look something like this:
+First, you will need to send your users to the Whop OAuth Portal. You can do this by having the user click a login button, which might look something like this:
 
 ```
-https://whop.com/oauth?client_id=YOUR_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI
+<a href={`https://whop.com/oauth?client_id=${process.env.CLIENT_ID}&redirect_uri=${process.env.REDIRECT_URI}`}>
+    <button>Login with Whop</button>
+</a>
 ```
 
+After being redirected, the user will be prompted to sign in with their existing Whop account (or to create a new one)
 ![Image](./assets/oauth.png)
 Once the user has authenticated themselves on the Whop OAuth Portal, they will be redirected back to the redirect_uri specified. This link will look something like this:
 
@@ -33,9 +36,30 @@ Once the user has authenticated themselves on the Whop OAuth Portal, they will b
 https://your_redirect_uri.com/auth/whop/callback?code=RANDOM_AUTH_CODE
 ```
 
-Once you have this code, you will need to make a `POST` request to `https://data.whop.com/oauth/token` in order to exchange this code (shown in the example as `RANDOM_AUTH_CODE`) for a full authorization token.
+Once you have this code, you will need to make a `POST` request to Whop, in order to exchange this code for a full authorization token.
 
-### 3. Gating Access to your Software/App
+```
+let response = await fetch("https://data.whop.com/oauth/token", {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      code: RANDOM_AUTH_CODE,
+      client_id: process.env.CLIENT_ID,
+      client_secret: process.env.CLIENT_SECRET,
+      redirect_uri: process.env.REDIRECT_URI,
+      grant_type: "authorization_code"
+    })
+}
+
+let parsed_response = response.json()
+let access_token = parsed_response.access_token
+```
+
+And now your user is authenticated! You can store this access token as a cookie or store it elsewhere, and use to make requests client-side (using this access token in the Authorization header of your requests).
+
+### Gating Access to your Software/App
 
 Now that your OAuth implementation is working and users are authenticated, check if a user holds a pass using the `/me/has_access/:id` endpoint. You can find the documentation for this endpoint [here](https://dev.whop.com/reference/has_access).
 
@@ -53,7 +77,7 @@ Now you know the identity of the user, as well as their access level, and can co
 
 ### NextJS Template
 
-- If you don't want to bother with RESTful requests and just want to dive in to some code, our [NextJS Template App](/nextjs) is the perfect solution. 
-Built on the latest version of NextJS, this template app is already optimized for integrations with Whop (using our JavaScript and Typescript SDK), letting you focus on what's important to your customers
+- If you don't want to bother with RESTful requests and just want to dive in to some code, our [NextJS Template App](/nextjs) is the perfect solution.
+  Built on the latest version of NextJS, this template app is already optimized for integrations with Whop (using our JavaScript and Typescript SDK), letting you focus on what's important to your customers
 
 <IntegrationPoints />

@@ -3,27 +3,23 @@ slug: /getting-started/integrate-via-webhooks
 title: Integrate via Webhooks
 ---
 
-
 # Integrate via Webhooks
 
 Follow this guide to easily integrate with Whop's membership platform using webhooks.
 
 If you aren't familiar, [Webhooks](https://hookdeck.com/webhooks/guides/what-are-webhooks-how-they-work#what-is-a-webhook) are a widely popular form of communication between web servers. Instead of having to constantly refetch data from an API, your server will be sent updates (aka webhooks) whenever an event happens on the providers end.
 
-We send webhooks when key events happen for your company and users. These events are useful for knowing when a User has purchased your product and when they should be granted access to your software. We also send an event when the User should no longer have access. 
+We send webhooks when key events happen for your company and users. These events are useful for knowing when a User has purchased your product and when they should be granted access to your software. We also send an event when the User should no longer have access.
 
 Thus, your application is simply responsible for accepting incoming requests from Whop and processing them as you see fit.
 
-
-# Guide
-
-### 1. Configure your webhook url
+### Configure your Webhook URL
 
 The Whop Business dashboard has a dedicated [developer settings page](https://dash.whop.com/developer), where you'll be able to access, update, and manage all things related to Whop API. This is where you'll begin configuring your webhook endpoint URL.
 
 ![](https://i.imgur.com/VVpkNxX.png)
 
-### 2. Test your endpoint
+### Test your Endpoint
 
 Enter your correct route into the modal and click the **Send test webhook** button. Our server will attempt to `POST` an example webhook event to the endpoint your provided. If your application accepts the request and returns a 200 HTTP response code, you'll see a green message saying "Test successful". Now, your endpoint will begin receiving events.
 
@@ -61,29 +57,25 @@ Here is an abbreviated example of the payload that would have been sent to your 
 }
 ```
 
-### 3. Test your integration
+### Test your Integration
 
 Now that your endpoint is configured, you'll want to test your integration to make sure events are handled properly by your application. Using the free `Plan` you made earlier, you can purchase a free `Membership` to your company, and wait for the `membership.went_valid` to be sent to your server. Similarly, if you want to test the `membership.went_invalid` event, you can terminate the free `Membership` you just purchased by navigating to the [members](https://dash.whop.com/members) page and opening your `User`'s profile.
 
 ![](https://i.imgur.com/lNsrc3Q.png)
 
-### 4. Developer setup complete 
+### Developer Setup Complete
 
 You are now configured to listen for events from your Whop Business dashboard. If you'd like to learn more about the different types of events you can receive and their respective payloads, head to our [Webhooks guide](/webhooks).
-
 
 ## Event Interpretation
 
 While you can interpret and process these webhooks events however you see fit, there are a few tips we'd like to provide that can get you started in the right direction.
 
-
 When you receive the `membership.went_valid` event, this means that someone has either just purchased a `Membership` for your application, or they successfully reactivated a `Membership` that was `expired`.
 Therefore, you'll want to make sure that the user this event is related either has their access added into your application, or their access is restored. In this instance, the `valid` boolean will be `true`.
 
-
 When you receive the `membership.went_invalid` event, this means that someone's `Membership` has been `canceled` or has `expired`. This `Membership`'s `User` no longer pays for your app or service, and consequently should have their access revoked.
 In this instance, the `valid` boolean will be `false`.
-
 
 ## Continue Setup
 
