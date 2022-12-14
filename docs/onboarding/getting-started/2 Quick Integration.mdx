@@ -57,26 +57,29 @@ Here is an abbreviated example of the payload that would have been sent to your 
 }
 ```
 
+### Handling Events
+
+Once you start receiving events, the next step is to make use of them so that you can deliver access of your product to the User who just purchased. Here is an example database you can build:
+
+- Make a users table
+  - Store the `user.id` and the `user.email` from the event payload
+- Make a subscriptions table
+  - Store the `Membership` `id` from the event payload
+  - Store the `valid` boolean from the event payload
+  - Attach it to the user you just made
+
+### Post purchase experience
+
+On the [passes page](https://dash.whop.com/passes/), you'll want to configure your post purchase welcome message to include instructions on how your buyer can claim their account and/or access your application. It might be helpful to include a link to your login or FAQ.
+
+![](https://i.imgur.com/Q9hlq4N.png)
+
 ### Test your Integration
 
-Now that your endpoint is configured, you'll want to test your integration to make sure events are handled properly by your application. Using the free `Plan` you made earlier, you can purchase a free `Membership` to your company, and wait for the `membership.went_valid` to be sent to your server. Similarly, if you want to test the `membership.went_invalid` event, you can terminate the free `Membership` you just purchased by navigating to the [members](https://dash.whop.com/members) page and opening your `User`'s profile.
+Once your business logic is ready, you'll want to test your integration to make sure events are handled properly and your users will experience the desired flow. Using the free `Plan` you made earlier, you can purchase a free `Membership` to your company, and wait for the `membership.went_valid` to be sent to your server. Similarly, if you want to test the `membership.went_invalid` event, you can terminate the free `Membership` you just purchased by navigating to the [members](https://dash.whop.com/members) page and opening your `User`'s profile.
 
 ![](https://i.imgur.com/lNsrc3Q.png)
 
-### Developer Setup Complete
+### Continue setup
 
-You are now configured to listen for events from your Whop Business dashboard. If you'd like to learn more about the different types of events you can receive and their respective payloads, head to our [Webhooks guide](/webhooks).
-
-## Event Interpretation
-
-While you can interpret and process these webhooks events however you see fit, there are a few tips we'd like to provide that can get you started in the right direction.
-
-When you receive the `membership.went_valid` event, this means that someone has either just purchased a `Membership` for your application, or they successfully reactivated a `Membership` that was `expired`.
-Therefore, you'll want to make sure that the user this event is related either has their access added into your application, or their access is restored. In this instance, the `valid` boolean will be `true`.
-
-When you receive the `membership.went_invalid` event, this means that someone's `Membership` has been `canceled` or has `expired`. This `Membership`'s `User` no longer pays for your app or service, and consequently should have their access revoked.
-In this instance, the `valid` boolean will be `false`.
-
-## Continue Setup
-
-Now that your developer integration is ready, you'll want to continue configuring your dashboard by setting up your `AccessPasses`, `Plans`, and `Experiences` before you launch. Click [here](/getting-started/getting-started) to continue our step-by-step guide.
+Now that your developer integration is ready, you'll want to continue configuring your dashboard by setting up your `AccessPasses`, `Plans`, and `Experiences` before you launch. Click [here](/getting-started/getting-started#finish-setup) to continue our step-by-step guide.
