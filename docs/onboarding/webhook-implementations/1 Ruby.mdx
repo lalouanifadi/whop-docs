@@ -1,0 +1,88 @@
+---
+slug: /webhook-implementations/ruby
+title: Ruby
+---
+
+# Webhook Implementations
+
+This is a Ruby implementation.
+
+```jsx
+# Set up the required dependencies
+require 'sinatra'
+require 'httparty'
+
+# Set up the OAuth2 client ID and client secret
+CLIENT_ID = "YOUR_CLIENT_ID"
+CLIENT_SECRET = "YOUR_CLIENT_SECRET"
+
+# Set up the redirect URL for the OAuth2 flow
+REDIRECT_URI = "http://localhost:4567/auth/whop/callback"
+
+# Set up the webhook endpoint URL
+WEBHOOK_ENDPOINT_URL = "http://localhost:4567/webhooks/whop"
+
+# Set up the Sinatra app
+get '/' do
+  # Display the login button to redirect users to the OAuth2 login page
+  '<a href="https://whop.com/oauth?client_id=' + CLIENT_ID + '&redirect_uri=' + REDIRECT_URI + '"><button>Login with Whop</button></a>'
+end
+
+# Set up the OAuth2 callback route
+get '/auth/whop/callback' do
+  # Extract the authorization code from the query parameters
+  code = params[:code]
+
+  # Exchange the authorization code for an access token
+  token_response = HTTParty.post("https://data.whop.com/oauth/token", body: {
+    code: code,
+    client_id: CLIENT_ID,
+    client_secret: CLIENT_SECRET,
+    redirect_uri: REDIRECT_URI,
+    grant_type: "authorization_code"
+  })
+
+  # Extract the access token from the response
+  access_token = token_response['access_token']
+
+  # Save the access token to use for making API requests on behalf of the user
+  session[:access_token] = access_token
+
+  # Redirect the user to the home page
+  redirect '/'
+end
+
+# Set up the webhook endpoint route
+post '/webhooks/whop' do
+  # Extract the relevant information from the webhook payload
+  action = params[:action]
+  data = params[:data]
+
+  # Do something with the webhook data, such as updating a database or sending an email
+  handle_webhook_event(action, data)
+
+  # Return a 200 OK response to acknowledge receipt of the webhook
+  status 200
+  body ''
+end
+
+# Set up a helper function to handle webhook events
+def handle_webhook_event(action, data)
+  case action
+  when 'membership.went_valid'
+    # Extract the relevant information from the data
+    membership_id = data['id']
+    user = data['user']
+    plan = data['plan']
+    valid = data['valid']
+
+    # Do something with the data, such as updating a database or sending an email
+    update_membership_in_database(membership_id, user, plan, valid)
+  end
+end
+
+# Set up a helper function to update a membership in the database
+def update_membership_in_database(membership_id, user, plan, valid)
+  # Update the membership in the database
+end
+```

@@ -1,0 +1,93 @@
+---
+slug: /webhook-implementations/nextjs
+title: Next JS
+---
+
+# NextJS Implementation
+
+This utilizes Whop Oauth and Whop Webhooks.
+
+```jsx
+import { useRouter } from "next/router";
+import fetch from "isomorphic-unfetch";
+
+// Set up the OAuth2 client ID and client secret
+const CLIENT_ID = "YOUR_CLIENT_ID"
+const CLIENT_SECRET = "YOUR_CLIENT_SECRET"
+
+// Set up the redirect URL for the OAuth2 flow
+const REDIRECT_URI = "http://localhost:3000/auth/whop/callback"
+
+// Set up the webhook endpoint URL
+const WEBHOOK_ENDPOINT_URL = "http://localhost:3000/webhooks/whop"
+
+function HomePage() {
+// Use the Next.js router
+const router = useRouter()
+
+// Check if the user is authenticated
+if (!router.query.access_token) {
+// Display the login button to redirect users to the OAuth2 login page
+return (
+
+<a
+  href={`https://whop.com/oauth?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}`}
+>
+  <button>Login with Whop</button>
+</a>
+) }
+
+// Extract the access token from the query parameters
+const access_token = router.query.access_token
+
+// Use the access token to make API requests on behalf of the user
+const user_response = await fetch("https://data.whop.com/api/v1/me", {
+headers: {
+Authorization: `Bearer ${access_token}`
+}
+})
+const user = await user_response.json()
+
+// Display the user's information
+return (
+
+<div>
+  <p>Welcome, {user.name}!</p>
+  <p>Your email is {user.email}.</p>
+</div>
+) }
+
+export default HomePage;
+
+// Set up the webhook endpoint route
+export async function getServerSideProps(context) {
+// Extract the relevant information from the webhook payload
+const action = context.query.action
+const data = context.query.data
+
+// Do something with the webhook data, such as updating a database or sending an email
+handleWebhookEvent(action, data)
+
+// Return a 200 OK response to acknowledge receipt of the webhook
+context.res.statusCode = 200
+context.res.end()
+
+return {
+props: {}
+}
+}
+
+// Set up a helper function to handle webhook events
+function handleWebhookEvent(action, data) {
+switch (action) {
+case 'membership.went_valid':
+// Extract the relevant information from the data
+const membership_id = data.id
+const user = data.user
+const plan = data.plan
+const valid = data.valid
+
+      // Do something with the data, such as updating a database or sending an
+
+}
+```

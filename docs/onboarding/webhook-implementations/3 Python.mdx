@@ -1,0 +1,56 @@
+---
+slug: /webhook-implementations/python
+title: Python (Flask)
+---
+
+# Python Implementation
+
+This utilizes Whop Webhooks.
+
+```python
+import json
+import os
+
+from flask import Flask, request, make_response
+import requests
+
+# Set up the OAuth2 client ID and client secret
+CLIENT_ID = "YOUR_CLIENT_ID"
+CLIENT_SECRET = "YOUR_CLIENT_SECRET"
+
+# Set up the redirect URL for the OAuth2 flow
+REDIRECT_URI = "http://localhost:5000/auth/whop/callback"
+
+# Set up the webhook endpoint URL
+WEBHOOK_ENDPOINT_URL = "http://localhost:5000/webhooks/whop"
+
+# Set up the Flask app
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    # Check if the user is authenticated
+    if "access_token" not in request.cookies:
+        # Display the login button to redirect users to the OAuth2 login page
+        return '<a href="https://whop.com/oauth?client_id=' + CLIENT_ID + '&redirect_uri=' + REDIRECT_URI + '"><button>Login with Whop</button></a>'
+
+    # Extract the access token from the cookies
+    access_token = request.cookies["access_token"]
+
+    # Use the access token to make API requests on behalf of the user
+    user_response = requests.get("https://data.whop.com/api/v1/me", headers={"Authorization": "Bearer " + access_token})
+    user = user_response.json()
+
+    # Display the user's information
+    return "Welcome, " + user["name"] + "! Your email is " + user["email"] + "."
+
+# Set up the OAuth2 callback route
+@app.route("/auth/whop/callback")
+def auth_callback():
+    # Extract the authorization code from the query parameters
+    code = request.args.get("code")
+
+    # Exchange the authorization code for an access token
+    token_response = requests.post("https://data.whop.com/oauth/token", data={
+        "code
+```
