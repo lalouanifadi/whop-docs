@@ -5,8 +5,6 @@ slug: /guides/check-for-access
 
 import CodeSnippetWithSummary from "@components/CodeSnippetWithSummary";
 
-## Checking To See If A User Has Access
-
 While building your app, you may need to check if a user has access to a specific resource, such as a company, access pass, or experience. To check if a user has access, you can use the `/api/v2/me/has_access/:resource_id` endpoint. This endpoint allows you to check if the current user has an active membership for the specified resource.
 
 An **active membership** is any membership with a status of trialing, active, past_due, or completed. This means that if the user has a membership with any of these statuses, they will be considered to have access to the specified resource.
@@ -14,7 +12,6 @@ An **active membership** is any membership with a status of trialing, active, pa
 ### Making a Request
 
 Here is an example of how to make a request to the `/api/v2/me/has_access/:resource_id` endpoint:
-
 
 <CodeSnippetWithSummary
   contract={"CheckResource"}
@@ -26,8 +23,8 @@ Here is an example of how to make a request to the `/api/v2/me/has_access/:resou
 In this example, `TOKEN` should be replaced with a valid access token for the user. The `resource_id` parameter should be replaced with the ID of the resource that you want to check the user's access to. The resource ID will have a prefix that indicates the type of resource, such as `biz_` for a company, `pass_` for an access pass, or `exp_` for an experience.
 
 ### Response
-If the user has an active membership for the specified resource, the endpoint will return a JSON object containing information about the user's access, such as whether or not they have access and the status of their membership. For example:
 
+If the user has an active membership for the specified resource, the endpoint will return a JSON object containing information about the user's access, such as whether or not they have access and the status of their membership. For example:
 
 ```json
 {

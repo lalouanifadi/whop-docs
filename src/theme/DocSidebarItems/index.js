@@ -10,7 +10,8 @@ function DocSidebarItems({ items, ...props }) {
   // Category logic (i.e. "Build contracts", etc.)
   const showCategoryPages = [
     "/platform-overview",
-    "/getting-started",
+    "/sell-access",
+    "/authentication",
     "/create",
     "/release",
     "/deploy",
@@ -36,11 +37,11 @@ function DocSidebarItems({ items, ...props }) {
       items: [
         "Home",
         "Platform Overview",
-        "Getting Started",
-        "Authentication"
+        "Sell Access to Software",
+        "Authentication",
       ],
     },
-   
+
     // {
     //   title: "Resources",
     //   items: [
