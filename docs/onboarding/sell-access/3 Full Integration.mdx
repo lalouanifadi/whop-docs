@@ -1,15 +1,20 @@
 ---
-slug: /getting-started/integrate-via-api
+slug: /sell-access/integrate-via-api
 title: Integrate via API
 ---
 
 import IntegrationPoints from "../../../src/components/getting-started/IntegrationPoints";
 
-# Integrate via API
+# Integrate via Oauth
 
-Integrating with Whop and the Whop API is easy. If you're a developer with a business account on [our dashboard](https://dash.whop.com), follow these steps start selling access to your software/app.
+OAuth is an open standard for authorization that allows users to grant third-party access to their resources without sharing their passwords. It is often used to allow users to securely authenticate with applications and authorize access to their data.
+
+In this integration scenario, you can use OAuth to authenticate your users and then check whether they have an active membership. This can be useful if you want to build membership functionality into your application and need a way to confirm that users hold a valid membership.
+
+To implement this integration, you will need to set up OAuth authentication for your application and then make API requests to check the status of a user's membership. You can use the information returned from these requests to determine whether a user has an active membership and take any necessary actions based on that information.
 
 ### Prerequisites
+
 To start the integration process, you'll need to find a way to authenticate users and verify they have access to your product.
 To implement OAuth2 through Whop, you will need to head to your [developer settings page](https://dash.whop.com/developer) to obtain your Client ID and Client Secret.
 These keys will be used to identify your website/app and authenticate it to the Whop API.
@@ -18,7 +23,19 @@ This URL should be an endpoint on your website that is specifically designed to 
 Once you receive a response, you can use the user's access tokens to grant them access to the requested resources.
 ![Image](./assets/oauth-setup.png)
 
-### Implementing Whop OAuth
+### Implementing Whop Oauth
+
+Here is an example of how you could implement OAuth2 authentication and membership verification in JavaScript using the Whop API:
+
+1. Obtain your OAuth keys and set up your redirect URL: Follow the instructions provided in your developer settings to obtain your Client ID and Client Secret, and specify a redirect URL on your website.
+
+2. Direct users to the login page: When a user tries to access a protected resource on your website, redirect them to the login page. This page should contain a button where users can begin your Oauth flow.
+
+3. Exchange the authorization code for an access token: When a user returns from your Oauth flow they will return with a `code` parameter in the URL, your server should make a request to the Whop API to exchange the authorization code for an access token. This request should include your Client ID and Client Secret, as well as the authorization code and redirect URL.
+
+4. Use the access token to make API requests: Once you have received an access token, you can use it to make API requests on behalf of the user. For example, you could make a request to the `/me` endpoint to retrieve the user's profile information, or a request to the `/memberships` endpoint to check the status of the user's membership.
+
+### Implementing Whop OAuth (more specific example)
 
 First, you will need to send your users to the Whop OAuth Portal. You can do this by having the user click a login button, which might look something like this:
 

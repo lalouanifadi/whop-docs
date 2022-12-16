@@ -1,13 +1,19 @@
 ---
-slug: /getting-started/integrate-via-webhooks
+slug: /sell-access/integrate-via-webhooks
 title: Integrate via Webhooks
 ---
 
 # Integrate via Webhooks
 
-Follow this guide to easily integrate with Whop's membership platform using webhooks.
+Webhooks are a way for an application to provide real-time notifications to other systems when certain events occur. They allow you to build integrations that respond to specific events in a more efficient and scalable way than constantly polling an API for updates.
+
+To integrate with webhooks, you will need to set up an endpoint on your own server that will receive the webhook notifications. You will then configure your webhooks to send notifications to this endpoint, and implement handling for the webhook notifications on your server.
+
+In this guide, we will walk you through the steps to set up and implement an integration with webhooks, including how to set up a webhook endpoint, configure your webhooks, and handle webhook notifications. We will also provide examples of how this can be done in JavaScript
 
 If you aren't familiar, [Webhooks](https://hookdeck.com/webhooks/guides/what-are-webhooks-how-they-work#what-is-a-webhook) are a widely popular form of communication between web servers. Instead of having to constantly refetch data from an API, your server will be sent updates (aka webhooks) whenever an event happens on the providers end.
+
+### What kind of Webhooks do we send?
 
 We send webhooks when key events happen for your company and users. These events are useful for knowing when a User has purchased your product and when they should be granted access to your software. We also send an event when the User should no longer have access.
 
@@ -58,6 +64,38 @@ Here is an abbreviated example of the payload that would have been sent to your 
 ```
 
 ### Handling Events
+
+Here is an example of how you could handle this webhook notification in JavaScript:
+
+```js
+function handleMembershipWebhook(payload) {
+  // Extract the relevant information from the payload
+  const membershipId = payload.data.id;
+  const status = payload.data.status;
+  const user = payload.data.user;
+  const plan = payload.data.plan;
+  const valid = payload.data.valid;
+
+  // Do something with the extracted information, such as updating a database or sending an email
+  updateMembershipInDatabase(membershipId, status, user, plan, valid);
+}
+```
+
+Here is an example of how you could handle this webhook notification in Ruby:
+
+```python
+def handle_membership_webhook(payload)
+  # Extract the relevant information from the payload
+  membership_id = payload['data']['id']
+  status = payload['data']['status']
+  user = payload['data']['user']
+  plan = payload['data']['plan']
+  valid = payload['data']['valid']
+
+  # Do something with the extracted information, such as updating a database or sending an email
+  update_membership_in_database(membership_id, status, user, plan, valid)
+end
+```
 
 Once you start receiving events, the next step is to make use of them so that you can deliver access of your product to the User who just purchased. Here is an example database you can build:
 
