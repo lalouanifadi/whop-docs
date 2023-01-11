@@ -17,6 +17,8 @@ function DocSidebarItems({ items, ...props }) {
     "/deploy",
     "/templates",
     "/cli",
+    "/guides",
+    "/webhooks",
   ];
   const checkIfShowCategoryPages = (item) => {
     // check if starts with
@@ -39,6 +41,7 @@ function DocSidebarItems({ items, ...props }) {
         "Platform Overview",
         "Sell Access to Software",
         "Authentication",
+        "Guides"
       ],
     },
 
@@ -160,9 +163,8 @@ function DocSidebarItems({ items, ...props }) {
           {categoryNameToIcon[formatCategoryName(props?.activePath)] && (
             <div>
               <img
-                src={`/assets/product/${
-                  categoryNameToIcon[formatCategoryName(props?.activePath)]
-                }`}
+                src={`/assets/product/${categoryNameToIcon[formatCategoryName(props?.activePath)]
+                  }`}
               />
               <p>{formatCategoryName(props?.activePath)}</p>
             </div>
