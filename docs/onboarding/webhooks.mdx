@@ -35,6 +35,9 @@ Checkout this guide to setup webhooks for your app: [Quick Integration Guide](/s
 5. How long does my endpoint have to respond?
   - Your server must respond to the request in 3 seconds or less. Otherwise, the request will timeout and it will be dropped.
 
+6. How do I know if the webhook is being fired for a new membership or an existing one?
+  - If the membership has just been created (aka purchased), it will have the key value pair of `status_reason: "created"`. If it not new and the status changed because of some future update to the membership, it will have `status_reason: "updated"`. `status_reason` indicates the reason why the status changed.
+
 
 ## Payload Information
 
@@ -123,7 +126,8 @@ Payment events will have a `data` object that is one-to-one with the [Payment ob
     "wallet_address": null,
     "custom_fields_responses": {},
     "discord": null,
-    "email": "email603180@gmail.com"
+    "email": "email603180@gmail.com",
+    "status_reason": "created"
   }
 }
 ```
